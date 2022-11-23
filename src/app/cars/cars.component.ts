@@ -12,6 +12,7 @@ export class CarsComponent implements OnInit {
   // cars: Cars[] = [];
   cars: Cars[] = [];
   searchText = '';
+  searchText2 = '';
   constructor(private carsService: CarsService, private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class CarsComponent implements OnInit {
       'x-rapidapi-host': 'random-facts2.p.rapidapi.com',
       'x-rapidapi-key': 'your-api-key',
     });
+
     // this.http
     //   .get<any>('http://localhost:5003/get-cars', {
     //     headers: headers,
@@ -33,7 +35,6 @@ export class CarsComponent implements OnInit {
       console.log({ cars: this.cars });
     });
   }
-
   fetchCars() {
     this.carsService.fetchCars();
   }

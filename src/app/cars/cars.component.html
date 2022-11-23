@@ -1,5 +1,3 @@
-<p>cars works!</p>
-
 <input
   class="form-control"
   type="text"
@@ -9,17 +7,52 @@
   placeholder="&#128270;  Start cars..."
 />
 
+<div *ngIf="searchText">
+  <ul *ngFor="let car of cars | search: searchText">
+    <li>{{ car.car_model }}</li>
+  </ul>
+</div>
+<input
+  class="form-control"
+  type="text"
+  name="search"
+  autocomplete="off"
+  [(ngModel)]="searchText2"
+  placeholder="&#128270;  Start cars..."
+/>
+
 <!-- <div *ngFor="let car of cars | search: searchText">
   <h1>Name : {{ car.car }}</h1>
 </div> -->
 
-<div class="products">
-  <div class="card" *ngFor="let car of cars | search: searchText">
-    <h1>{{ car.car }}</h1>
-    <p>Car Model : {{ car.car_model }}</p>
-    <p>Car model year : {{ car.car_model_year }}</p>
-    <p class="price">{{ car.price }}</p>
-    <p>Car VIN : {{ car.car_vin }}</p>
-    <p><button>Compare</button></p>
+<div class="split left">
+  <div class="centered">
+    <div>
+      <div class="products" *ngIf="searchText">
+        <!-- <div class="card" *ngFor="let car of cars | search: searchText"> -->
+        <!-- <h1>{{ car.car }}</h1>
+          <p>Car Model : {{ car.car_model }}</p>
+          <p>Car model year : {{ car.car_model_year }}</p>
+          <p class="price">{{ car.price }}</p>
+          <p>Car VIN : {{ car.car_vin }}</p>
+          <p><button>Compare</button></p> -->
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="split right">
+    <div class="centered">
+      <div class="products2" *ngIf="searchText2">
+        <div class="card" *ngFor="let car of cars | search: searchText2">
+          <h1>{{ car.car }}</h1>
+          <p>Car Model : {{ car.car_model }}</p>
+          <p>Car model year : {{ car.car_model_year }}</p>
+          <p class="price">{{ car.price }}</p>
+          <p>Car VIN : {{ car.car_vin }}</p>
+          <p><button>Compare</button></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

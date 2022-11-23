@@ -5,6 +5,8 @@ const fetch = require("node-fetch");
 const bodyParser = require("body-parser");
 const { mongoose } = require("./db.js");
 
+const carRoutes = require("./routes/car");
+
 app.use(
   cors({
     Access_Control_Allow_Origin: "*",
@@ -15,6 +17,8 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+
+app.use("/car", carRoutes);
 
 app.get("/get-cars", async (req, res) => {
   const data = await fetch("https://myfakeapi.com/api/cars/");
