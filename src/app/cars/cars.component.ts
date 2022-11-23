@@ -9,27 +9,28 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class CarsComponent implements OnInit {
   // cars: Cars[] = [];
-  cars: any;
+  cars: Cars[] = [];
 
   constructor(private carsService: CarsService, private http: HttpClient) {}
 
   ngOnInit(): void {
-    // let headers = new HttpHeaders({
-    //   'x-rapidapi-host': 'random-facts2.p.rapidapi.com',
-    //   'x-rapidapi-key': 'your-api-key',
-    // });
+    let headers = new HttpHeaders({
+      'x-rapidapi-host': 'random-facts2.p.rapidapi.com',
+      'x-rapidapi-key': 'your-api-key',
+    });
     // this.http
     //   .get<any>('http://localhost:5003/get-cars', {
     //     headers: headers,
     //   })
     //   .subscribe((data) => {
-    //     console.log(data);
+    //     console.log({ data: data.length });
     //   });
+
     this.carsService.fetchCars().subscribe((response) => {
-      this.cars = response;
-      console.log({ response });
+      console.log(response.cars);
+      this.cars = response.cars;
+      console.log({ cars: this.cars });
     });
-    console.log(this.cars );
   }
 
   fetchCars() {
