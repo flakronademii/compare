@@ -29,7 +29,7 @@ export class CarsComponent implements OnInit {
       this.cars = response;
       console.log({ response });
     });
-    console.log({ rhis: this.cars });
+    console.log(this.cars );
   }
 
   fetchCars() {
