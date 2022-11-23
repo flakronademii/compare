@@ -50,9 +50,13 @@
           <p>Car model year : {{ car.car_model_year }}</p>
           <p class="price">{{ car.price }}</p>
           <p>Car VIN : {{ car.car_vin }}</p>
-          <p><button>Compare</button></p>
+          <p><button (click)="selectedCar(car, car)">Compare</button></p>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div *ngFor="let car of selectedCar1">
+  <h1>{{ car.car }} {{ car.car_model }}</h1>
 </div>

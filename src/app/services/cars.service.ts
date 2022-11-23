@@ -20,13 +20,4 @@ export class CarsService {
       }),
     });
   }
-
-  getSelectedCar(id: any) {
-    return this.http.get<any>(`${this.LOCALHOST_URL}/get-cars/${this.cars}`, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest',
-      }),
-    });
-  }
 }

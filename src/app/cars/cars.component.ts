@@ -13,6 +13,8 @@ export class CarsComponent implements OnInit {
   cars: Cars[] = [];
   searchText = '';
   searchText2 = '';
+  selectedCar1: any = [];
+
   constructor(private carsService: CarsService, private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -37,5 +39,11 @@ export class CarsComponent implements OnInit {
   }
   fetchCars() {
     this.carsService.fetchCars();
+  }
+
+  selectedCar(car: Cars, id: any) {
+    const selectedProduct = this.cars.find((cars) => cars.id === car.id);
+    this.selectedCar1.push(selectedProduct);
+    console.log({ selectedCar1: this.selectedCar1 });
   }
 }
