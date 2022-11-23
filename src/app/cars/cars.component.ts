@@ -2,6 +2,7 @@ import { CarsService } from './../services/cars.service';
 import { Component, OnInit } from '@angular/core';
 import { Cars } from '../services/cars';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
@@ -10,7 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class CarsComponent implements OnInit {
   // cars: Cars[] = [];
   cars: Cars[] = [];
-
+  searchText = '';
   constructor(private carsService: CarsService, private http: HttpClient) {}
 
   ngOnInit(): void {

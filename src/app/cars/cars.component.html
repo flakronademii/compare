@@ -1,4 +1,14 @@
 <p>cars works!</p>
-<div *ngFor="let car of cars">
-  <h1>Name : {{ car.car_model }}</h1>
+
+<input
+  class="form-control"
+  type="text"
+  name="search"
+  autocomplete="off"
+  [(ngModel)]="searchText"
+  placeholder="&#128270;  Start cars..."
+/>
+
+<div *ngFor="let car of cars | search: searchText">
+  <h1>Name : {{ car.car }}</h1>
 </div>
