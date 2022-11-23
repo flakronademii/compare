@@ -9,6 +9,17 @@
   placeholder="&#128270;  Start cars..."
 />
 
-<div *ngFor="let car of cars | search: searchText">
+<!-- <div *ngFor="let car of cars | search: searchText">
   <h1>Name : {{ car.car }}</h1>
+</div> -->
+
+<div class="products">
+  <div class="card" *ngFor="let car of cars | search: searchText">
+    <h1>{{ car.car }}</h1>
+    <p>Car Model : {{ car.car_model }}</p>
+    <p>Car model year : {{ car.car_model_year }}</p>
+    <p class="price">{{ car.price }}</p>
+    <p>Car VIN : {{ car.car_vin }}</p>
+    <p><button>Compare</button></p>
+  </div>
 </div>
