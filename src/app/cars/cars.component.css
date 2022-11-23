@@ -10,6 +10,25 @@
   color: grey;
   font-size: 22px;
 }
+mat-card {
+  margin-top: 5%;
+  margin-bottom: 10%;
+  width: 180px;
+  height: auto;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+.buttoni {
+  background-color: rgb(66, 101, 107);
+  color: white;
+  width: 10%;
+}
+
+.search-result {
+  width: 100%;
+}
 
 .card button {
   border: none;
@@ -79,4 +98,20 @@ split {
 .centered img {
   width: 150px;
   border-radius: 50%;
+}
+
+.selectedProducts {
+  display: flex;
+  margin: 0 auto;
+}
+
+.searched-li {
+  background-color: lightgray;
+  width: 20%;
+  left: 0px;
+}
+
+.searched-ul {
+  text-decoration: none;
+  list-style-type: none;
 }

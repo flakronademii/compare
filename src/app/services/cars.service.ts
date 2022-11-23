@@ -20,4 +20,8 @@ export class CarsService {
       }),
     });
   }
+
+  disappearCars() {
+    this.cars.length = 0;
+  }
 }

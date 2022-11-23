@@ -8,10 +8,22 @@
 />
 
 <div *ngIf="searchText">
-  <ul *ngFor="let car of cars | search: searchText">
-    <li>{{ car.car_model }}</li>
+  <ul class="searched-ul" *ngFor="let car of cars | search: searchText">
+    <li class="searched-li">{{ car.car_model }}</li>
+    <p><button (click)="selectedCar(car, car)">Select</button></p>
   </ul>
 </div>
+
+<div class="search-result" *ngIf="searchText2">
+  <ul class="searched-ul" *ngFor="let car of cars | search: searchText2">
+    <p>
+      <button mat-button class="buttoni" (click)="selectedCar(car, car)">
+        {{ car.car }} {{ car.car_model }}
+      </button>
+    </p>
+  </ul>
+</div>
+
 <input
   class="form-control"
   type="text"
@@ -25,22 +37,23 @@
   <h1>Name : {{ car.car }}</h1>
 </div> -->
 
-<div class="split left">
+<!-- <div class="split left">
   <div class="centered">
     <div>
       <div class="products" *ngIf="searchText">
-        <!-- <div class="card" *ngFor="let car of cars | search: searchText"> -->
-        <!-- <h1>{{ car.car }}</h1>
+        <div class="card" *ngFor="let car of cars | search: searchText">
+       <h1>{{ car.car }}</h1>
           <p>Car Model : {{ car.car_model }}</p>
           <p>Car model year : {{ car.car_model_year }}</p>
           <p class="price">{{ car.price }}</p>
           <p>Car VIN : {{ car.car_vin }}</p>
-          <p><button>Compare</button></p> -->
-        <!-- </div> -->
+          <p><button>Compare</button></p>
+        </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
+<!--
   <div class="split right">
     <div class="centered">
       <div class="products2" *ngIf="searchText2">
@@ -55,8 +68,27 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div class="selectedProducts" *ngIf="selectedCar1">
+  <mat-card *ngFor="let car of selectedCar1">
+    <mat-card-title
+      ><br />
+      {{ car.car }}
+    </mat-card-title>
+
+    <p class="content">Description : {{ car.car_model }}</p>
+    <br />
+    <p class="content">Price: {{ car.price }}</p>
+    <button
+      mat-button
+      class="order"
+      (click)="selectedCar(car, car)"
+      type="submit"
+    >
+      Order Now
+    </button>
+  </mat-card>
 </div>
 
-<div *ngFor="let car of selectedCar1">
-  <h1>{{ car.car }} {{ car.car_model }}</h1>
-</div>
+<button (click)="kthirabet()" class="btn btn-success" value="kthi">Kthi</button>
