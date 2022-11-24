@@ -1,37 +1,64 @@
-<input
-  class="form-control"
-  type="text"
-  name="search"
-  autocomplete="off"
-  [(ngModel)]="searchText"
-  placeholder="&#128270;  Start cars..."
-/>
+<div class="search">
+<div class="row" id="search">
+  <div class="col-sm-5 col-sm-offset-1 portfolio-item">
+      <div class="input-group" display="inline">
+          <input id="searchone" name="search" type="search" class="form-control"  [(ngModel)]="searchText"  placeholder="First Car">
+      </div>
+  </div>
+  <div class="col-sm-5 col-sm-pull-1 portfolio-item">
+      <div class="input-group" display="inline">
+          <input id="searchtwo" name="search" type="search"  class="form-control" [(ngModel)]="searchText2"  placeholder="Second Car">
+          <div class="input-group-btn">
+              <button title="asd" class="btn btn-default btn" name="submit" type="submit"> <span id="glyph" class="glyphicon glyphicon-search" name="submit"></span>
 
-<div *ngIf="searchText">
-  <ul class="searched-ul" *ngFor="let car of cars | search: searchText">
-    <li class="searched-li">{{ car.car_model }}</li>
-    <p><button (click)="selectedCar(car, car)">Select</button></p>
+              </button>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+<div class="search">
+ <div *ngIf="searchText" class="row">
+  <div class="col-sm-5 col-sm-offset-1 portfolio-item">
+
+  <ul  *ngFor="let car of cars | search: searchText">
+    <p><button class="buttonii"(click)="selectedCar(car, car)"> {{car.car}} {{car.car_model}}</button></p>
   </ul>
 </div>
+<div class="col-sm-5 col-sm-pull-1 portfolio-item">
+<div *ngIf="searchText2">
+  <ul  *ngFor="let car of cars | search: searchText2">
+    <p><button class="buttonii"(click)="selectedCar(car, car)"> {{car.car}} {{car.car_model}}</button></p>
 
-<div class="search-result" *ngIf="searchText2">
-  <ul class="searched-ul" *ngFor="let car of cars | search: searchText2">
-    <p>
-      <button mat-button class="buttoni" (click)="selectedCar(car, car)">
-        {{ car.car }} {{ car.car_model }}
-      </button>
-    </p>
   </ul>
 </div>
+</div>
+</div>
+</div>
 
-<input
+<div class="centriri">
+  <div class="selectedProducts" *ngIf="selectedCar1">
+    <mat-card *ngFor="let car of selectedCar1" class="mb -r">
+      <button id="removebutton" (click)="removeCar(car, car)">x</button>
+      <mat-card-title
+        ><br />
+        {{ car.car }}
+      </mat-card-title>
+
+      <p class="contentt">Model :{{ car.car_model }}</p>
+      <br />
+      <p class="contentt">Price: {{ car.price }}</p>
+    </mat-card>
+  </div>
+
+<!-- <input
   class="form-control"
   type="text"
   name="search"
   autocomplete="off"
   [(ngModel)]="searchText2"
   placeholder="&#128270;  Start cars..."
-/>
+/> -->
 
 <!-- <div *ngFor="let car of cars | search: searchText">
   <h1>Name : {{ car.car }}</h1>
@@ -70,20 +97,6 @@
   </div>
 </div> -->
 
-<div class="selectedProducts" *ngIf="selectedCar1">
-  <mat-card *ngFor="let car of selectedCar1">
-    <button id="removebutton" (click)="removeCar(car, car)">x</button>
-    <mat-card-title
-      ><br />
-      {{ car.car }}
-    </mat-card-title>
-
-    <p class="content">Description : {{ car.car_model }}</p>
-    <br />
-    <p class="content">Price: {{ car.price }}</p>
-    <button (click)="removeCar(car, car)">Remove</button>
-  </mat-card>
-</div>
 
 <!-- <div *ngFor="let car of cars">
   <button value="" (click)="selectedBrand(car, car)">
@@ -94,4 +107,4 @@
   </select>
 </div> -->
 
-<button (click)="kthirabet()" class="btn btn-success" value="kthi">Kthi</button>
+<!-- <button (click)="kthirabet()" class="btn btn-success" value="kthi">Kthi</button> -->

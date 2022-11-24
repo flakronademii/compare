@@ -13,13 +13,13 @@
 mat-card {
   margin-top: 5%;
   margin-bottom: 10%;
-  width: 180px;
-  height: auto;
+  width: 250px;
+  height: 380px;
   font-size: 20px;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-}
+  margin: 0.4em;}
 #removebutton {
   position: relative;
   color: red;
@@ -28,11 +28,6 @@ mat-card {
   float: right;
   padding: 5px;
   margin: 0px;
-}
-.buttoni {
-  background-color: rgb(66, 101, 107);
-  color: white;
-  width: 10%;
 }
 
 .search-result {
@@ -50,11 +45,16 @@ mat-card {
   width: 100%;
   font-size: 18px;
 }
-
+.centriri{
+  margin: 0 auto;
+  display: flex;
+}
 .card button:hover {
   opacity: 0.7;
 }
-
+.buttonii{
+  width: 200px;
+}
 .products {
   display: flex;
   width: 50%;
@@ -70,16 +70,6 @@ mat-card {
   left: 50%;
   flex-wrap: wrap;
   top: 100%;
-}
-
-split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
 }
 
 /* Control the left side */
@@ -119,8 +109,14 @@ split {
   width: 20%;
   left: 0px;
 }
-
+.search{
+ margin-top: 30px;
+ margin-left: 190px;
+}
 .searched-ul {
   text-decoration: none;
   list-style-type: none;
+}
+.contentt{
+  font-size: 10px;
 }
