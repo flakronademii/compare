@@ -1,3 +1,5 @@
+import { LoaderInterceptorService } from './services/loader-interceptor.service';
+import { LoaderService } from './services/loader.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -5,15 +7,17 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarsComponent } from './cars/cars.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CarsService } from './services/cars.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SearchPipe } from './search.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { LoaderComponent } from './loader/loader.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
-  declarations: [AppComponent, CarsComponent, SearchPipe],
+  declarations: [AppComponent, CarsComponent, SearchPipe, LoaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,8 +25,16 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     FormsModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
   ],
-  providers: [],
+  providers: [
+    LoaderService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

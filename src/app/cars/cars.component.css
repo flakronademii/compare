@@ -20,6 +20,15 @@ mat-card {
   align-items: center;
   border: 1px solid black;
 }
+#removebutton {
+  position: relative;
+  color: red;
+  background-color: white;
+  border: none;
+  float: right;
+  padding: 5px;
+  margin: 0px;
+}
 .buttoni {
   background-color: rgb(66, 101, 107);
   color: white;

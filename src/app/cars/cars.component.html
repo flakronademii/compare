@@ -72,6 +72,7 @@
 
 <div class="selectedProducts" *ngIf="selectedCar1">
   <mat-card *ngFor="let car of selectedCar1">
+    <button id="removebutton" (click)="removeCar(car, car)">x</button>
     <mat-card-title
       ><br />
       {{ car.car }}
@@ -80,10 +81,17 @@
     <p class="content">Description : {{ car.car_model }}</p>
     <br />
     <p class="content">Price: {{ car.price }}</p>
-    <button mat-button class="btn btn-danger" (click)="removeCar(car, car)">
-      Remove
-    </button>
+    <button (click)="removeCar(car, car)">Remove</button>
   </mat-card>
 </div>
+
+<!-- <div *ngFor="let car of cars">
+  <button value="" (click)="selectedBrand(car, car)">
+    {{ car.car }}
+  </button>
+  <select name="" id="">
+    <option *ngFor="let item of selected">{{ item.car_model }}</option>
+  </select>
+</div> -->
 
 <button (click)="kthirabet()" class="btn btn-success" value="kthi">Kthi</button>

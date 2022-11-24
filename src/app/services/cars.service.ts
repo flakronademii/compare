@@ -21,6 +21,14 @@ export class CarsService {
     });
   }
 
+  getAPI() {
+    return this.http
+      .get<any>('https://car-data.p.rapidapi.com/cars/types')
+      .subscribe((x) => {
+        console.log({ x });
+      });
+  }
+
   disappearCars() {
     this.cars.length = 0;
   }
