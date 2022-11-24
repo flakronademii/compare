@@ -37,7 +37,7 @@ export class CarsComponent implements OnInit {
   kthirabet() {
     this.carsService.fetchCars().subscribe((response) => {
       this.cars = response.cars;
-      window.location.reload();
+      // window.location.reload();
 
       console.log({ cars2: this.cars });
     });
@@ -75,5 +75,13 @@ export class CarsComponent implements OnInit {
     }
 
     console.log({ selectedCar1: this.selectedCar1 });
+  }
+
+  removeCar(car: Cars, id: any) {
+    this.selectedCar1 = this.selectedCar1.filter(
+      (item: Cars) => item.id !== car.id
+    );
+    console.log(this.selectedCar1);
+    // this.selectedCar(car, id);
   }
 }

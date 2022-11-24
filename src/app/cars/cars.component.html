@@ -80,13 +80,8 @@
     <p class="content">Description : {{ car.car_model }}</p>
     <br />
     <p class="content">Price: {{ car.price }}</p>
-    <button
-      mat-button
-      class="order"
-      (click)="selectedCar(car, car)"
-      type="submit"
-    >
-      Order Now
+    <button mat-button class="btn btn-danger" (click)="removeCar(car, car)">
+      Remove
     </button>
   </mat-card>
 </div>
