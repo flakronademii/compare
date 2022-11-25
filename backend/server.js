@@ -28,28 +28,35 @@ app.get("/get-cars", async (req, res) => {
   res.send(json);
 });
 
-app.get("/cars-api", (req, res) => {
-  var model = ["audi", "bmw"];
-  request.get(
-    {
-      url: "https://api.api-ninjas.com/v1/cars?make=" + model[0],
-      headers: {
-        "X-Api-Key": "Xk9ZrclTxcIIogjx6NVPaA==Qxh9QUealtHGwwLI",
-      },
-    },
-    function (error, response, body) {
-      if (error) return console.error("Request failed:", error);
-      else if (response.statusCode != 200)
-        return console.error(
-          "Error:",
-          response.statusCode,
-          body.toString("utf8")
-        );
-      else console.log(body);
-      res.send(body);
-    }
-  );
-});
+// app.get("/single", async (req, res) => {
+//   const singleCar = await fetch(
+//     "http://localhost:5003/get-cars/" + req.params.id
+//   );
+//   console.log({ singleCar });
+// });
+
+// app.get("/cars-api", (req, res) => {
+//   var model = ["audi", "bmw"];
+//   request.get(
+//     {
+//       url: "https://api.api-ninjas.com/v1/cars?make=" + model[0],
+//       headers: {
+//         "X-Api-Key": "Xk9ZrclTxcIIogjx6NVPaA==Qxh9QUealtHGwwLI",
+//       },
+//     },
+//     function (error, response, body) {
+//       if (error) return console.error("Request failed:", error);
+//       else if (response.statusCode != 200)
+//         return console.error(
+//           "Error:",
+//           response.statusCode,
+//           body.toString("utf8")
+//         );
+//       else console.log(body);
+//       res.send(body);
+//     }
+//   );
+// });
 
 app.listen(5003, () => {
   console.log("server started at http://localhost:5003");

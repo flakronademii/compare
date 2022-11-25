@@ -19,10 +19,12 @@ export class CarsComponent implements OnInit {
   searchText = '';
   searchText2 = '';
   selectBrand = '';
-  selected: any;
+  selected: any = [];
   selectedCar1: any = [];
-  selectedValue :any;
-
+  selectedValue: any;
+  selectedCarModels: any = [];
+  selectedOption: string = '';
+  printedOption: any = [];
   isLoading = false;
   constructor(
     private carsService: CarsService,
@@ -77,9 +79,10 @@ export class CarsComponent implements OnInit {
       // localStorage.setItem('selectedCars', JSON.stringify(this.selectedCar1));
     }
 
-    if (this.selectedCar1.length >= 2) {
+    if (this.selectedCar1.length >= 3) {
       this.searchText = '';
-
+      this.selectedCar1.length = 3;
+      Swal.fire('Warning', `Maximum 3 cars`, 'warning');
     }
 
     console.log({ selectedCar1: this.selectedCar1 });
@@ -94,10 +97,26 @@ export class CarsComponent implements OnInit {
     // this.selectedCar(car, id);
   }
 
-  selectedBrand(car_model: any, car: Cars) {
-    this.selected = this.cars.filter((cars) => {
-      return cars.car === car.car;
+  selectedBrand(car: Cars, event: Event) {
+    // this.selected = this.cars.filter((cars) => {
+    //   return cars.car === car.car;
+    // });
+    this.selected = event?.target;
+    console.log({ model: this.selected.car });
+    this.selected.forEach((x: any) => {
+      console.log({ x });
+      this.selectedCarModels.push(x);
+      console.log({ sc: this.selectedCarModels });
+      console.log(this.selected);
     });
-    console.log({ model: this.selected });
   }
+
+  // print(car: Cars) {
+  //   this.printedOption = this.selectedOption;
+  //   console.log(this.printedOption);
+  //   this.printedOption = this.cars.filter((cars) => {
+  //     return cars.car === car.car;
+  //   });
+  //   console.log({ po: this.printedOption });
+  // }
 }

@@ -1,39 +1,68 @@
 <div class="search">
-<div class="row" id="search">
-  <div class="col-sm-5 col-sm-offset-1 portfolio-item">
+  <div class="row" id="search">
+    <div class="col-sm-5 col-sm-offset-1 portfolio-item">
       <div class="input-group" display="inline">
-          <input id="searchone" name="search" type="search" class="form-control"  [(ngModel)]="searchText"  placeholder="First Car">
+        <input
+          id="searchone"
+          name="search"
+          type="search"
+          class="form-control"
+          [(ngModel)]="searchText"
+          placeholder="First Car"
+        />
       </div>
-  </div>
-  <div class="col-sm-5 col-sm-pull-1 portfolio-item">
+    </div>
+    <div class="col-sm-5 col-sm-pull-1 portfolio-item">
       <div class="input-group" display="inline">
-          <input id="searchtwo" name="search" type="search"  class="form-control" [(ngModel)]="searchText2"  placeholder="Second Car">
-          <div class="input-group-btn">
-              <button title="asd" class="btn btn-default btn" name="submit" type="submit"> <span id="glyph" class="glyphicon glyphicon-search" name="submit"></span>
-
-              </button>
-          </div>
+        <input
+          id="searchtwo"
+          name="search"
+          type="search"
+          class="form-control"
+          [(ngModel)]="searchText2"
+          placeholder="Second Car"
+        />
+        <div class="input-group-btn">
+          <button
+            title="asd"
+            class="btn btn-default btn"
+            name="submit"
+            type="submit"
+          >
+            <span
+              id="glyph"
+              class="glyphicon glyphicon-search"
+              name="submit"
+            ></span>
+          </button>
+        </div>
       </div>
-  </div>
+    </div>
   </div>
 </div>
 <div class="search">
- <div *ngIf="searchText" class="row">
-  <div class="col-sm-5 col-sm-offset-1 portfolio-item">
-
-  <ul  *ngFor="let car of cars | search: searchText">
-    <p><button class="buttonii"(click)="selectedCar(car, car)"> {{car.car}} {{car.car_model}}</button></p>
-  </ul>
-</div>
-<div class="col-sm-5 col-sm-pull-1 portfolio-item">
-<div *ngIf="searchText2">
-  <ul  *ngFor="let car of cars | search: searchText2">
-    <p><button class="buttonii"(click)="selectedCar(car, car)"> {{car.car}} {{car.car_model}}</button></p>
-
-  </ul>
-</div>
-</div>
-</div>
+  <div *ngIf="searchText" class="row">
+    <div class="col-sm-5 col-sm-offset-1 portfolio-item">
+      <ul *ngFor="let car of cars | search: searchText">
+        <p>
+          <button class="buttonii" (click)="selectedCar(car, car)">
+            {{ car.car }} {{ car.car_model }}
+          </button>
+        </p>
+      </ul>
+    </div>
+    <div class="col-sm-5 col-sm-pull-1 portfolio-item">
+      <div *ngIf="searchText2">
+        <ul *ngFor="let car of cars | search: searchText2">
+          <p>
+            <button class="buttonii" (click)="selectedCar(car, car)">
+              {{ car.car }} {{ car.car_model }}
+            </button>
+          </p>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="centriri">
@@ -50,8 +79,17 @@
       <p class="contentt">Price: {{ car.price }}</p>
     </mat-card>
   </div>
+  <!-- <select [(ngModel)]="selectedOption">
+    <option>select car</option>
+    <option *ngFor="let car of cars" (change)="selectedBrand(car, $event)">
+      {{ car.car }}
+    </option>
+  </select>
+  <select>
+    <option *ngFor="let item of selectedCarModels">{{ item }}</option>
+  </select> -->
 
-<!-- <input
+  <!-- <input
   class="form-control"
   type="text"
   name="search"
@@ -60,11 +98,11 @@
   placeholder="&#128270;  Start cars..."
 /> -->
 
-<!-- <div *ngFor="let car of cars | search: searchText">
+  <!-- <div *ngFor="let car of cars | search: searchText">
   <h1>Name : {{ car.car }}</h1>
 </div> -->
 
-<!-- <div class="split left">
+  <!-- <div class="split left">
   <div class="centered">
     <div>
       <div class="products" *ngIf="searchText">
@@ -80,7 +118,7 @@
     </div>
   </div> -->
 
-<!--
+  <!--
   <div class="split right">
     <div class="centered">
       <div class="products2" *ngIf="searchText2">
@@ -97,14 +135,14 @@
   </div>
 </div> -->
 
+  <!-- <div *ngFor="let car of cars">
+    <button value="" (click)="selectedBrand(car, car)">
+      {{ car.car }}
+    </button>
+    <select name="" id="">
+      <option *ngFor="let item of selected">{{ item.car_model }}</option>
+    </select>
+  </div> -->
 
-<!-- <div *ngFor="let car of cars">
-  <button value="" (click)="selectedBrand(car, car)">
-    {{ car.car }}
-  </button>
-  <select name="" id="">
-    <option *ngFor="let item of selected">{{ item.car_model }}</option>
-  </select>
-</div> -->
-
-<!-- <button (click)="kthirabet()" class="btn btn-success" value="kthi">Kthi</button> -->
+  <!-- <button (click)="kthirabet()" class="btn btn-success" value="kthi">Kthi</button> -->
+</div>
