@@ -16,9 +16,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { LoaderComponent } from './loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './header/header.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import { TheftcarComponent } from './theftcar/theftcar.component';
 @NgModule({
-  declarations: [AppComponent, CarsComponent, SearchPipe, LoaderComponent],
+  declarations: [AppComponent, CarsComponent, SearchPipe, LoaderComponent, HeaderComponent, TheftcarComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,7 +31,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FormsModule,
     MatButtonModule,
     MatProgressSpinnerModule,
-    MatSelectModule
+    MatSelectModule,
+    NgbModule,
+    MatToolbarModule,MatIconModule
   ],
   providers: [
     LoaderService,

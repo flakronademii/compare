@@ -1,4 +1,4 @@
-<div class="search">
+<!--
   <div class="row" id="search">
     <div class="col-sm-5 col-sm-offset-1 portfolio-item">
       <div class="input-group" display="inline">
@@ -39,8 +39,8 @@
       </div>
     </div>
   </div>
-</div>
-<div class="search">
+</div> -->
+<!-- <div class="search">
   <div *ngIf="searchText" class="row">
     <div class="col-sm-5 col-sm-offset-1 portfolio-item">
       <ul *ngFor="let car of cars | search: searchText">
@@ -55,7 +55,7 @@
       <div *ngIf="searchText2">
         <ul *ngFor="let car of cars | search: searchText2">
           <p>
-            <button class="buttonii" (click)="selectedCar(car, car)">
+            <button class="buttonii">
               {{ car.car }} {{ car.car_model }}
             </button>
           </p>
@@ -63,12 +63,35 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+<div class="nmidis">
 
-<div class="centriri">
+  <h5>Compare up to 3 favorite cars, and we help you which one is the best to buy</h5>
+  <img src="assets/carsc.png" alt="">
+</div>
+<div class="mantmajsht">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+  <div ngbDropdown class="dropdown" >
+    <button ngbDropdownToggle class="btn btn-secondary" type="button" id="dropdownMenuButton1" aria-expanded="false">
+Select Car
+  </button>
+    <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton2">
+      <li><a ngbDropdownItem href="#"  (click)=" selectedBrand(car)" *ngFor="let car of cars">{{car.car}}</a></li>
+    </ul>
+  </div>
+  <div ngbDropdown class="dropdown" >
+    <button ngbDropdownToggle class="btn btn-secondary" type="button" id="dropdownMenuButton3" aria-expanded="false">
+Select Model
+  </button>
+    <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton4">
+      <li><a ngbDropdownItem href="#"  (click)="selectedCar(car, car)" *ngFor="let car of selectedCarModels">{{car.car}} {{car.car_model}}</a></li>
+    </ul>
+  </div>
   <div class="selectedProducts" *ngIf="selectedCar1">
-    <mat-card *ngFor="let car of selectedCar1" class="mb -r">
-      <button id="removebutton" (click)="removeCar(car, car)">x</button>
+    <mat-card *ngFor="let car of selectedCar1" class="mb-r" class="space">
+      <button class="removebutton" (click)="removeCar(car, car)">x</button>
       <mat-card-title
         ><br />
         {{ car.car }}
@@ -79,6 +102,112 @@
       <p class="contentt">Price: {{ car.price }}</p>
     </mat-card>
   </div>
+  </div>
+  <div class="col-sm-4">
+  <div ngbDropdown class="dropdown" >
+    <button ngbDropdownToggle class="btn btn-secondary" type="button" id="dropdownMenuButton5" aria-expanded="false">
+Select Car
+  </button>
+    <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton6">
+      <li><a ngbDropdownItem href="#"  (click)=" selectedBrand2(car)" *ngFor="let car of cars">{{car.car}}</a></li>
+    </ul>
+  </div>
+  <div ngbDropdown class="dropdown" >
+    <button ngbDropdownToggle class="btn btn-secondary" type="button" id="dropdownMenuButton7" aria-expanded="false">
+Select Model
+  </button>
+    <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton8">
+      <li><a ngbDropdownItem href="#"  (click)="selectedCars1(car, car)" *ngFor="let car of selectedCarModels2">{{car.car}} {{car.car_model}}</a></li>
+    </ul>
+  </div>
+  <div class="selectedProducts" *ngIf="selectedCar2">
+    <mat-card *ngFor="let car of selectedCar2" class="mb-r" class="space">
+      <button class="removebutton" (click)="removeCar1(car, car)">x</button>
+      <mat-card-title
+        ><br />
+        {{ car.car }}
+      </mat-card-title>
+
+      <p class="contentt">Model :{{ car.car_model }}</p>
+      <br />
+      <p class="contentt">Price: {{ car.price }}</p>
+    </mat-card>
+</div>
+</div>
+<div class="col-sm-4">
+  <div ngbDropdown class="dropdown" >
+    <button ngbDropdownToggle class="btn btn-secondary" type="button" id="dropdownMenuButton8" aria-expanded="false">
+Select Car
+  </button>
+    <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton8">
+      <li><a ngbDropdownItem href="#"  (click)="selectedBrand3(car)" *ngFor="let car of cars">{{car.car}}</a></li>
+    </ul>
+  </div>
+  <div ngbDropdown class="dropdown" >
+    <button ngbDropdownToggle class="btn btn-secondary" type="button" id="dropdownMenuButton9" aria-expanded="false">
+Select Model
+  </button>
+    <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton10">
+      <li><a ngbDropdownItem href="#"  (click)="selectedCars3(car, car)" *ngFor="let car of selectedCarModels3">{{car.car}} {{car.car_model}}</a></li>
+    </ul>
+  </div>
+  <div class="selectedProducts" *ngIf="selectedCar3">
+    <mat-card *ngFor="let car of selectedCar3" class="mb-r" class="space">
+      <button class="removebutton" (click)="removeCar2(car, car)">x</button>
+      <mat-card-title
+        ><br />
+        {{ car.car }}
+      </mat-card-title>
+
+      <p class="contentt">Model :{{ car.car_model }}</p>
+      <br />
+      <p class="contentt">Price: {{ car.price }}</p>
+    </mat-card>
+  </div>
+</div>
+</div>
+  <!-- <div class="centriri">
+    <div class="selectedProducts" *ngIf="selectedCar1">
+      <mat-card *ngFor="let car of selectedCar1" class="mb-r" class="space">
+        <button class="removebutton" (click)="removeCar(car, car)">x</button>
+        <mat-card-title
+          ><br />
+          {{ car.car }}
+        </mat-card-title>
+
+        <p class="contentt">Model :{{ car.car_model }}</p>
+        <br />
+        <p class="contentt">Price: {{ car.price }}</p>
+      </mat-card>
+    </div>
+    <div class="centriri">
+      <div class="selectedProducts" *ngIf="selectedCar2">
+        <mat-card *ngFor="let car of selectedCar2" class="mb-r" class="space">
+          <button class="removebutton" (click)="removeCar1(car, car)">x</button>
+          <mat-card-title
+            ><br />
+            {{ car.car }}
+          </mat-card-title>
+
+          <p class="contentt">Model :{{ car.car_model }}</p>
+          <br />
+          <p class="contentt">Price: {{ car.price }}</p>
+        </mat-card>
+      </div>
+      <div class="centriri">
+        <div class="selectedProducts" *ngIf="selectedCar3">
+          <mat-card *ngFor="let car of selectedCar3" class="mb-r" class="space">
+            <button class="removebutton" (click)="removeCar2(car, car)">x</button>
+            <mat-card-title
+              ><br />
+              {{ car.car }}
+            </mat-card-title>
+
+            <p class="contentt">Model :{{ car.car_model }}</p>
+            <br />
+            <p class="contentt">Price: {{ car.price }}</p>
+          </mat-card>
+        </div> -->
   <!-- <select [(ngModel)]="selectedOption">
     <option>select car</option>
     <option *ngFor="let car of cars" (change)="selectedBrand(car, $event)">

@@ -10,17 +10,22 @@
   color: grey;
   font-size: 22px;
 }
+
+.space{
+  margin-left: 100px;
+}
 mat-card {
   margin-top: 5%;
   margin-bottom: 10%;
   width: 250px;
   height: 380px;
+  background-color: #f0efed;
   font-size: 20px;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
   margin: 0.4em;}
-#removebutton {
+.removebutton {
   position: relative;
   color: red;
   background-color: white;
@@ -29,11 +34,27 @@ mat-card {
   padding: 5px;
   margin: 0px;
 }
-
+.nmidis{
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 .search-result {
   width: 100%;
 }
+.mantmajsht{
+  text-align: center;
+  margin-top:30px
 
+}
+.btn{
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+.btn-secondary{
+  background-color: #faf6f2;
+  color: black;
+}
 .card button {
   border: none;
   outline: 0;
@@ -46,7 +67,6 @@ mat-card {
   font-size: 18px;
 }
 .centriri{
-  margin: 0 auto;
   display: flex;
 }
 .card button:hover {
@@ -101,7 +121,7 @@ mat-card {
 
 .selectedProducts {
   display: flex;
-  margin: 0 auto;
+
 }
 
 .searched-li {
