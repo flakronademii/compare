@@ -2,6 +2,7 @@ import { LoaderService } from './../services/loader.service';
 import { CarsService } from './../services/cars.service';
 import { Component, OnInit } from '@angular/core';
 import { Cars } from '../services/cars';
+import { allCars } from '../services/allCars';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Swal from 'sweetalert2';
 interface cars {
@@ -14,26 +15,26 @@ interface cars {
   styleUrls: ['./cars.component.css'],
 })
 export class CarsComponent implements OnInit {
-
   cars: Cars[] = [];
   tempArray: Cars[] = [];
   searchText = '';
   searchText2 = '';
   selectBrand = '';
   selected: any = [];
-  selected2:any=[];
-  selected3:any=[];
+  selected2: any = [];
+  selected3: any = [];
   selectedCar1: any = [];
-  selectedCar2: any =[];
-  selectedCar3: any=[];
+  selectedCar2: any = [];
+  selectedCar3: any = [];
   selectedCarModels: any = [];
   selectedCarModels2: any = [];
   selectedCarModels3: any = [];
   selectedValue: any;
-
+  allCars: allCars[] = [];
   selectedOption: string = '';
   printedOption: any = [];
-
+  makes: any = [];
+  filtered: any = [];
   constructor(
     private carsService: CarsService,
     private loaderService: LoaderService,
@@ -51,23 +52,37 @@ export class CarsComponent implements OnInit {
       this.cars = response.cars;
       console.log({ cars: this.cars });
     });
-    // this.carsService.getAPI();
+    this.carsService.getAllCars().subscribe((x) => {
+      console.log(x);
+      this.allCars = x.car_db_metric;
+      this.allCars.forEach((make) => {
+        this.makes.push(make.make);
+        console.log({ makes: this.makes });
+      });
+      // const filtered = this.makes.filter((make: any) => make.make === x.make);
+      this.filtered = new Set([...this.makes]);
+      console.log({ filtered: this.filtered });
+    });
   }
+
   fetchCars() {
     this.carsService.fetchCars();
   }
 
-  selectedCar(car: Cars, id: any) {
-    const selectedProduct = this.cars.find((cars) => cars.id === car.id);
-    let inCart = this.selectedCar1.some((x: any) => x.id === car.id);
+  selectedCar(car: allCars, id_trim: any) {
+    const selectedProduct = this.allCars.find(
+      (cars) => cars.id_trim === car.id_trim
+    );
+
+    let inCart = this.selectedCar1.some((x: any) => x.id_trim === car.id_trim);
     // const data = JSON.parse(localStorage.getItem('selectedCars')!);
-    let selected = this.cars.filter((cars) => {
-      return cars.car === car.car;
+    let selected = this.allCars.filter((cars) => {
+      return cars.make === car.make;
     });
     if (inCart) {
       Swal.fire(
         'Warning',
-        `${car.car} ${car.car_model} ${car.car_model_year} is already choosen`,
+        `${car.make} ${car.model} ${car.generation} is already choosen`,
         'warning'
       );
     } else {
@@ -79,7 +94,6 @@ export class CarsComponent implements OnInit {
       this.selectedCar1.length = 1;
       Swal.fire('Warning', `Maximum 1 cars`, 'warning');
     }
-
 
     console.log({ selectedCar1: this.selectedCar1 });
   }
@@ -107,10 +121,8 @@ export class CarsComponent implements OnInit {
       Swal.fire('Warning', `Maximum 1 cars`, 'warning');
     }
 
-
     console.log({ selectedCar2: this.selectedCar2 });
   }
-
 
   selectedCars3(car3: Cars, id: any) {
     const selectedProduct3 = this.cars.find((cars) => cars.id === car3.id);
@@ -138,7 +150,6 @@ export class CarsComponent implements OnInit {
     console.log({ selectedCar3: this.selectedCar3 });
   }
 
-
   removeCar(car: Cars, id: any) {
     this.selectedCar1 = this.selectedCar1.filter(
       (item: Cars) => item.id !== car.id
@@ -164,11 +175,11 @@ export class CarsComponent implements OnInit {
     // this.selectedCar(car, id);
   }
 
-   selectedBrand(car: Cars) {
-    this.selected = this.cars.filter((cars) => {
-      return cars.car === car.car;
+  selectedBrand(cars: allCars) {
+    this.selected = this.allCars.filter((cars) => {
+      return cars.model === cars.model;
     });
-    console.log({ model: this.selected.car });
+    console.log({ model: this.selected.model });
     this.selected.forEach((x: any) => {
       console.log({ x });
       this.selectedCarModels.push(x);
@@ -176,9 +187,10 @@ export class CarsComponent implements OnInit {
       console.log(this.selected);
     });
   }
-  selectedBrand2(car1: Cars) {
-    this.selected2 = this.cars.filter((cars) => {
-      return cars.car === car1.car;
+
+  selectedBrand2(car1: allCars) {
+    this.selected2 = this.allCars.filter((cars) => {
+      return cars.model === car1.model;
     });
     console.log({ model: this.selected2.car });
     this.selected2.forEach((x: any) => {
@@ -201,7 +213,6 @@ export class CarsComponent implements OnInit {
       console.log(this.selected3);
     });
   }
-
 
   // print(car: Cars) {
   //   this.printedOption = this.selectedOption;
