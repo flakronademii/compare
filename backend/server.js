@@ -5,9 +5,7 @@ const request = require("request");
 const fetch = require("node-fetch");
 const bodyParser = require("body-parser");
 const { mongoose } = require("./db.js");
-const axios = require("axios");
 const carRoutes = require("./routes/car");
-const fs = require("fs");
 const Car = require("./models/cars");
 
 app.use(

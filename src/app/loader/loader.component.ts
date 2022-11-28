@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import anime from 'animejs/lib/anime.es.js';
-import Ajv from 'ajv';
 
 @Component({
   selector: 'app-loader',

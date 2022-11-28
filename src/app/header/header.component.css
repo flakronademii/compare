@@ -2,10 +2,28 @@
   flex: 1 1 auto;
 }
 mat-toolbar {
-  background-color: #3983f9;
-  color: black;
+  background-color: #006582;
+  color: white;
 }
 a {
-  background-color: #497bfa;
-  border: 1px solid white;
+  background-color: #006582;
+  border: 2px solid white;
+  border-radius: 10%;
+  color: white;
 }
+img{
+  width: auto;
+  height: 50px;
+}
+.navbar-brand{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 2px solid white;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 8px;
+  margin-top: 20px;
+  color: white;
+
+  outline: none;}
+

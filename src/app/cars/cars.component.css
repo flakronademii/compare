@@ -44,7 +44,8 @@ mat-card {
 }
 .mantmajsht{
   text-align: center;
-  margin-top:30px
+  margin-top:30px;
+  margin-left:150px;
 
 }
 .btn{
@@ -91,7 +92,33 @@ mat-card {
   flex-wrap: wrap;
   top: 100%;
 }
+.btn{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 1px solid white;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 10px;
+  margin-top: 20px;
+  color: white;
 
+  outline: none;
+}
+.btn-secondary{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 1px solid white;
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 20px;
+color: white;
+  overflow: hidden;
+  outline: none;
+}
+.fotoja{
+  width: 1200px;
+  height: 250px;
+}
 /* Control the left side */
 .left {
   left: 0;
