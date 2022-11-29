@@ -28,6 +28,7 @@ export class CarsComponent implements OnInit {
   models: any = [];
   filteredModels: any = [];
   filterCarByCarModel: any;
+  filterCarByCarModel1:any;
   tempFiltered: any = [];
 
   constructor(private carsService: CarsService, private http: HttpClient) {}
@@ -132,7 +133,9 @@ export class CarsComponent implements OnInit {
   }
 
   allModels: any = [];
+  allModels1: any = [];
   noDuplicatefilterCarByModel: any;
+  noDuplicatefilterCarByModel1:any;
   filterCarByModel: any;
   SelectMake(e: any) {
     this.filterCarByModel = this.allCars.filter((x) => x.make === e.value);
@@ -152,22 +155,32 @@ export class CarsComponent implements OnInit {
   filterCarByModel1: any;
   SelectMake1(e: any) {
     this.filterCarByModel1 = this.allCars.filter((x) => x.make === e.value);
-    console.log(this.filterCarByModel1);
-  }
+    this.filterCarByModel1.forEach((car: any) => {
+      this.allModels1.push(car.model);
+
+      console.log({ car: this.allModels1 });
+    });
+    this.noDuplicatefilterCarByModel1 = new Set([...this.allModels1]);
+
+    console.log({
+      filterCarByModel1: this.filterCarByModel1,
+      noDuplicatefilterCarByModel1: this.noDuplicatefilterCarByModel1,
+    });  }
 
   SelectModel(e: any) {
     this.filterCarByCarModel = this.allCars.filter((x) => x.model === e.value);
     console.log({ asdd: this.filterCarByCarModel });
   }
 
+  SelectModel1(e: any) {
+    this.filterCarByCarModel1 = this.allCars.filter((x) => x.model === e.value);
+    console.log({ asdd: this.filterCarByCarModel1 });
+  }
   removeCar(car: allCars, id_trim: any) {
     this.selectedCar1 = this.selectedCar1.filter(
       (item: allCars) => item.id_trim !== car.id_trim
     );
     console.log(this.selectedCar1);
-    this.filterCarByCarModel = [];
-    this.models = [];
-    this.noDuplicatefilterCarByModel = [];
   }
 
   removeCar1(car2: allCars, id_trim: any) {
