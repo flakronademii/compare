@@ -1,117 +1,80 @@
 
 <div class="nmidis">
+<!-- -------------------fotoja e tudi rabve ------------------- -->
 
-  <img class="fotoja"src="assets/cars.png" alt="" />
+
+<img class="fotoja"src="assets/cars.png" alt="" />
 </div>
+
+
+<!-- --------------------fotoja e CC-BACKGROUND ---------------- -->
+<div class="class1"></div>
+
+
+
+<!-- -------------------------Raba e par---------------------------- -->
+
+
 <div class="mantmajsht">
   <div class="container">
     <div class="row">
       <div class="col-sm-5">
+        <mat-form-field appearance="outline">
+          <mat-label>Choose a make</mat-label>
+          <mat-select (selectionChange)="SelectMake($event)">
+            <mat-option *ngFor="let car of filtered" [value]="car" >{{car}}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <div ngbDropdown class="dropdown">
-          <button
-            ngbDropdownToggle
-            class="btn btn-secondary"
-            type="button"
-            id="dropdownMenuButton1"
-            aria-expanded="false"
-          >
-            Select Car
-          </button>
-          <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton2">
-            <li>
-              <a
-                ngbDropdownItem
-                href="#"
-                (click)="selectedBrand(car)"
-                *ngFor="let car of filtered"
-                >{{ car }}</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div ngbDropdown class="dropdown">
-          <button
-            ngbDropdownToggle
-            class="btn btn-secondary"
-            type="button"
-            id="dropdownMenuButton3"
-            aria-expanded="false"
-          >
-            Select Model
-          </button>
-          <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton4">
-            <li>
-              <a
-                ngbDropdownItem
-                href="#"
-                (click)="selectedCar(car, car)"
-                *ngFor="let car of selectedCarModels"
-                >{{ car.car }} {{ car.car_model }} {{ car.car_model_year }}</a
-              >
-            </li>
-          </ul>
+        <mat-form-field appearance="outline">
+          <mat-label>Choose a model</mat-label>
+          <mat-select (selectionChange)="selectedCar($event)">
+            <mat-option *ngFor="let car of filterCarByModel" [value]="car?.id_trim" >{{car.make}} {{car?.model}} {{car.year_to}}</mat-option>
+          </mat-select>
+        </mat-form-field>
         </div>
         <div class="selectedProducts" *ngIf="selectedCar1">
+
+
+   <!-- --------------------- Card e rabes par ----------------------- -->
+
+
           <mat-card *ngFor="let car of selectedCar1" class="mb-r" class="space">
             <button class="removebutton" (click)="removeCar(car, car)">
               x
             </button>
             <mat-card-title
               ><br />
-              {{ car.car }}
+              {{ car.make }}
             </mat-card-title>
 
-            <p class="contentt">Model :{{ car.car_model }}</p>
+            <p class="contentt">Model :{{ car.model }}</p>
             <br />
-            <p class="contentt">Price: {{ car.price }}</p>
+            <p class="contentt">Year: {{ car.year_to }}</p>
           </mat-card>
         </div>
       </div>
+<!-- ---------------------------- Raba e dit------------------------------------------------------------------>
       <div class="col-sm-5">
+        <mat-form-field appearance="outline">
+          <mat-label>Choose a make</mat-label>
+          <mat-select (selectionChange)="SelectMake1($event)" >
+            <mat-option *ngFor="let car of filtered" [value]="car" >{{car}}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <div ngbDropdown class="dropdown">
-          <button
-            ngbDropdownToggle
-            class="btn btn-secondary"
-            type="button"
-            id="dropdownMenuButton5"
-            aria-expanded="false"
-          >
-            Select Car
-          </button>
-          <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton6">
-            <li>
-              <a
-                ngbDropdownItem
-                href="#"
-                (click)="selectedBrand(car)"
-                *ngFor="let car of allCars"
-                >{{ car.model }}</a
-              >
-            </li>
-          </ul>
+        <mat-form-field appearance="outline">
+          <mat-label>Choose a model</mat-label>
+          <mat-select (selectionChange)="selectedCars($event)">
+            <mat-option *ngFor="let car of filterCarByModel1" [value]="car?.id_trim" >{{car.make}} {{car?.model}} {{car.year_to}}</mat-option>
+          </mat-select>
+        </mat-form-field>
         </div>
-        <div ngbDropdown class="dropdown">
-          <button
-            ngbDropdownToggle
-            class="btn btn-secondary"
-            type="button"
-            id="dropdownMenuButton7"
-            aria-expanded="false"
-          >
-            Select Model
-          </button>
-          <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton8">
-            <li>
-              <a
-                ngbDropdownItem
-                href="#"
-                (click)="selectedCars1(car, car)"
-                *ngFor="let car of selectedCarModels2"
-                >{{ car.car }} {{ car.car_model }}</a
-              >
-            </li>
-          </ul>
-        </div>
+
+
+      <!-- -----------------------------Card e rabes dit ------------------------>
+
+
         <div class="selectedProducts" *ngIf="selectedCar2">
           <mat-card *ngFor="let car of selectedCar2" class="mb-r" class="space">
             <button class="removebutton" (click)="removeCar1(car, car)">
@@ -119,15 +82,20 @@
             </button>
             <mat-card-title
               ><br />
-              {{ car.car }}
+              {{ car.make }}
             </mat-card-title>
 
-            <p class="contentt">Model :{{ car.car_model }}</p>
+            <p class="contentt">Model :{{ car.model }}</p>
             <br />
-            <p class="contentt">Price: {{ car.price }}</p>
+            <p class="contentt">Year: {{ car.year_to }}</p>
           </mat-card>
         </div>
       </div>
     </div>
   </div>
 </div>
+<div class="nmidiss">
+  <button  id="compare" (click)="compare()"> Compare</button>
+
+</div>
+

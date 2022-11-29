@@ -24,6 +24,7 @@
     "@ng-bootstrap/ng-bootstrap": "^13.1.1",
     "@popperjs/core": "^2.11.6",
     "ajv": "^8.11.2",
+    "angular-animations": "^0.11.0",
     "animejs": "^3.2.1",
     "bootstrap": "^5.2.3",
     "cors": "^2.8.5",

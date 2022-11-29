@@ -1,80 +1,72 @@
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-}
-
-.price {
-  color: grey;
-  font-size: 22px;
-}
-
-.space{
-  margin-left: 100px;
-}
 mat-card {
   margin-top: 5%;
   margin-bottom: 10%;
   width: 250px;
   height: 380px;
-  background-color: #f0efed;
   font-size: 20px;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  margin: 0.4em;}
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 4px solid white;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 8px;
+  margin-top: 20px;
+  color: white;
+
+  outline: none;  margin: 0.4em;
+}
 .removebutton {
-  position: relative;
-  color: red;
-  background-color: white;
+  position: absolute;
+        top: 0px;
+        right: 0px;  color: white;
+  background-color: transparent;
   border: none;
-  float: right;
-  padding: 5px;
-  margin: 0px;
+  padding: 8px;
+}
+.removebutton:hover{
+  color: red;
 }
 .nmidis{
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
 }
-.search-result {
-  width: 100%;
+.nmidiss{
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 50px;
 }
+
 .mantmajsht{
   text-align: center;
   margin-top:30px;
   margin-left:150px;
 
 }
-.btn{
-  background-color: rgb(255, 255, 255);
-  color: black;
-}
-.btn-secondary{
-  background-color: #faf6f2;
-  color: black;
-}
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
+#compare{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 1px solid rgb(0, 0, 0);
   cursor: pointer;
-  width: 100%;
-  font-size: 18px;
+  overflow: hidden;
+  padding: 8px;
+  margin-top: 20px;
+  color: rgb(0, 0, 0);
+ margin-bottom: 30px;
+  outline: none;
 }
-.centriri{
-  display: flex;
-}
-.card button:hover {
-  opacity: 0.7;
-}
-.buttonii{
-  width: 200px;
+.class1{
+  background-image: url(../../assets/cc.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
 }
 .products {
   display: flex;
@@ -92,78 +84,16 @@ mat-card {
   flex-wrap: wrap;
   top: 100%;
 }
-.btn{
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: 1px solid white;
-  cursor: pointer;
-  overflow: hidden;
-  padding: 10px;
-  margin-top: 20px;
-  color: white;
-
-  outline: none;
-}
-.btn-secondary{
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: 1px solid white;
-  cursor: pointer;
-  padding: 10px;
-  margin-top: 20px;
-color: white;
-  overflow: hidden;
-  outline: none;
-}
 .fotoja{
-  width: 1200px;
-  height: 250px;
+  width: 90%;
+  height: 100%;
 }
-/* Control the left side */
-.left {
-  left: 0;
-  background-color: #111;
-}
-
-/* Control the right side */
-.right {
-  right: 0;
-  background-color: red;
-}
-
-/* If you want the content centered horizontally and vertically */
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.selectedProducts {
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
 
-/* Style the image inside the centered container, if needed */
-.centered img {
-  width: 150px;
-  border-radius: 50%;
-}
-
-.selectedProducts {
-  display: flex;
-
-}
-
-.searched-li {
-  background-color: lightgray;
-  width: 20%;
-  left: 0px;
-}
-.search{
- margin-top: 30px;
- margin-left: 190px;
-}
-.searched-ul {
-  text-decoration: none;
-  list-style-type: none;
-}
 .contentt{
   font-size: 10px;
 }

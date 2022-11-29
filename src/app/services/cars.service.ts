@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
 import { allCars } from '../services/allCars';
 import { environment } from 'src/environments/environment';
-import { Cars } from './cars';
 @Injectable({
   providedIn: 'root',
 })
@@ -12,7 +11,6 @@ export class CarsService {
   }
 
   private LOCALHOST_URL = environment.LOCALHOST_URL;
-  cars: Cars[] = [];
   allCars: allCars[] = [];
   fetchCars() {
     return this.http.get<any>(`${this.LOCALHOST_URL}/get-cars`, {
@@ -41,6 +39,5 @@ export class CarsService {
   }
 
   disappearCars() {
-    this.cars.length = 0;
   }
 }

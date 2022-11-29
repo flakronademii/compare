@@ -1,5 +1,4 @@
-import { LoaderInterceptorService } from './services/loader-interceptor.service';
-import { LoaderService } from './services/loader.service';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -21,10 +20,13 @@ import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { TheftcarComponent } from './theftcar/theftcar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [AppComponent, CarsComponent, SearchPipe, LoaderComponent, HeaderComponent, TheftcarComponent ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     MatCardModule,
@@ -32,16 +34,14 @@ import { TheftcarComponent } from './theftcar/theftcar.component';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatSelectModule,
+    MatFormFieldModule,
     NgbModule,
-    MatToolbarModule,MatIconModule
+    MatToolbarModule,MatIconModule,
+
+
   ],
   providers: [
-    LoaderService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoaderInterceptorService,
-      multi: true,
-    },
+  
   ],
   bootstrap: [AppComponent],
 })
