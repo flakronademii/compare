@@ -38,7 +38,7 @@
         </div>
         <div ngbDropdown class="dropdown">
           <mat-form-field appearance="outline">
-            <mat-label>Choose Year</mat-label>
+            <mat-label>Choose Stats</mat-label>
             <mat-select (selectionChange)="selectedCar($event)">
               <mat-option
                 *ngFor="let car of filterCarByCarModel"
@@ -46,7 +46,7 @@
               >
                 <!-- {{ car.make }} {{ car?.model }} {{ car.year_to }}
                 {{ car.engine_hp }}hp {{ car.engine_type }} -->
-                {{ car.capacity_cm3 }}cc {{ car?.engine_hp }}hp
+                {{ car.trim }} {{car.engine_type}} {{ car?.engine_hp }}hp
                 {{ car?.year_to }}
               </mat-option>
             </mat-select>
@@ -281,7 +281,7 @@
         </div>
         <div ngbDropdown class="dropdown">
           <mat-form-field appearance="outline">
-            <mat-label>Choose Year</mat-label>
+            <mat-label>Choose Stats</mat-label>
             <mat-select (selectionChange)="selectedCars($event)">
               <mat-option
                 *ngFor="let car of filterCarByCarModel"
@@ -289,7 +289,7 @@
               >
                 <!-- {{ car.make }} {{ car?.model }} {{ car.year_to }}
                 {{ car.engine_hp }}hp {{ car.engine_type }} -->
-                {{ car.capacity_cm3 }}cc {{ car?.engine_hp }}hp
+                {{ car.trim }} {{car.engine_type}} {{ car?.engine_hp }}hp
                 {{ car?.year_to }}
               </mat-option>
             </mat-select>
