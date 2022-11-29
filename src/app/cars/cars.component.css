@@ -15,37 +15,38 @@ mat-card {
   margin-top: 20px;
   color: white;
 
-  outline: none;  margin: 0.4em;
+  outline: none;
+  margin: 0.4em;
 }
 .removebutton {
   position: absolute;
-        top: 0px;
-        right: 0px;  color: white;
+  top: 0px;
+  right: 0px;
+  color: white;
   background-color: transparent;
   border: none;
   padding: 8px;
 }
-.removebutton:hover{
+.removebutton:hover {
   color: red;
 }
-.nmidis{
+.nmidis {
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
 }
-.nmidiss{
+.nmidiss {
   text-align: center;
   margin-top: 150px;
   margin-bottom: 50px;
 }
 
-.mantmajsht{
+.mantmajsht {
   text-align: center;
-  margin-top:30px;
-  margin-left:150px;
-
+  margin-top: 30px;
+  margin-left: 150px;
 }
-#compare{
+#compare {
   background-color: transparent;
   background-repeat: no-repeat;
   border: 1px solid rgb(0, 0, 0);
@@ -54,19 +55,19 @@ mat-card {
   padding: 8px;
   margin-top: 20px;
   color: rgb(0, 0, 0);
- margin-bottom: 30px;
+  margin-bottom: 30px;
   outline: none;
 }
-.class1{
+.class1 {
   background-image: url(../../assets/cc.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
 }
 .products {
   display: flex;
@@ -84,7 +85,7 @@ mat-card {
   flex-wrap: wrap;
   top: 100%;
 }
-.fotoja{
+.fotoja {
   width: 90%;
   height: 100%;
 }
@@ -94,6 +95,33 @@ mat-card {
   text-align: center;
 }
 
-.contentt{
+.contentt {
   font-size: 10px;
+}
+
+table {
+  width: 20%;
+  color: white;
+}
+table tr {
+  background-color: #006582;
+}
+table tbody {
+  background-color: #006582;
+}
+
+#removebtn {
+  background-color: #006582;
+}
+
+#table1 {
+  width: 100%;
+}
+#table2 {
+  width: 100%;
+}
+.tables {
+  display: flex;
+  position: relative;
+  margin: 0 auto;
 }

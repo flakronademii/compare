@@ -1,19 +1,13 @@
-
 <div class="nmidis">
-<!-- -------------------fotoja e tudi rabve ------------------- -->
+  <!-- -------------------fotoja e tudi rabve ------------------- -->
 
-
-<img class="fotoja"src="assets/cars.png" alt="" />
+  <img class="fotoja" src="assets/cars.png" alt="" />
 </div>
-
 
 <!-- --------------------fotoja e CC-BACKGROUND ---------------- -->
 <div class="class1"></div>
 
-
-
 <!-- -------------------------Raba e par---------------------------- -->
-
 
 <div class="mantmajsht">
   <div class="container">
@@ -22,80 +16,276 @@
         <mat-form-field appearance="outline">
           <mat-label>Choose a make</mat-label>
           <mat-select (selectionChange)="SelectMake($event)">
-            <mat-option *ngFor="let car of filtered" [value]="car" >{{car}}</mat-option>
+            <mat-option *ngFor="let car of filtered" [value]="car">{{
+              car
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
         <div ngbDropdown class="dropdown">
-        <mat-form-field appearance="outline">
-          <mat-label>Choose a model</mat-label>
-          <mat-select (selectionChange)="selectedCar($event)">
-            <mat-option *ngFor="let car of filterCarByModel" [value]="car?.id_trim" >{{car.make}} {{car?.model}} {{car.year_to}}</mat-option>
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Choose a model</mat-label>
+            <mat-select (selectionChange)="SelectModel($event)">
+              <mat-option
+                *ngFor="let car of noDuplicatefilterCarByModel"
+                [value]="car"
+              >
+                <!-- {{ car.make }} {{ car?.model }} {{ car.year_to }}
+                {{ car.engine_hp }}hp {{ car.engine_type }} -->
+                {{ car }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
+        <div ngbDropdown class="dropdown">
+          <mat-form-field appearance="outline">
+            <mat-label>Choose Year</mat-label>
+            <mat-select (selectionChange)="selectedCar($event)">
+              <mat-option
+                *ngFor="let car of filterCarByCarModel"
+                [value]="car.year_to && car.id_trim"
+              >
+                <!-- {{ car.make }} {{ car?.model }} {{ car.year_to }}
+                {{ car.engine_hp }}hp {{ car.engine_type }} -->
+                {{ car.capacity_cm3 }}cc {{ car?.engine_hp }}hp
+                {{ car?.year_to }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
         <div class="selectedProducts" *ngIf="selectedCar1">
-
-
-   <!-- --------------------- Card e rabes par ----------------------- -->
-
-
-          <mat-card *ngFor="let car of selectedCar1" class="mb-r" class="space">
-            <button class="removebutton" (click)="removeCar(car, car)">
-              x
-            </button>
-            <mat-card-title
-              ><br />
-              {{ car.make }}
-            </mat-card-title>
-
-            <p class="contentt">Model :{{ car.model }}</p>
-            <br />
-            <p class="contentt">Year: {{ car.year_to }}</p>
-          </mat-card>
+          <!-- --------------------- Card e rabes par ----------------------- -->
+          <table id="table1" class="table align-middle mb-0 bg-white">
+            <thead class="bg-light"></thead>
+            <tbody *ngFor="let car of selectedCar1">
+              <button
+                id="removebutton"
+                class="btn btn-danger"
+                (click)="removeCar(car, car)"
+              >
+                remove
+              </button>
+              <tr>
+                <th>{{ car.make }} {{ car.model }} {{ car.year_to }}</th>
+              </tr>
+              <tr>
+                <td>Make: {{ car.make }}</td>
+              </tr>
+              <tr>
+                <td>Model: {{ car.model }}</td>
+              </tr>
+              <tr>
+                <td>Capacity (cm3) {{ car.capacity_cm3 }}</td>
+              </tr>
+              <tr>
+                <td>Body type: {{ car.body_type }}</td>
+              </tr>
+              <tr>
+                <td>
+                  Fuel Consumption City:
+                  {{ car.city_fuel_per_100km_l }} liters
+                </td>
+              </tr>
+              <tr>
+                <td>Curb weight (kg): {{ car.curb_weight_kg }}</td>
+              </tr>
+              <tr>
+                <td>Cylinder bore (mm): {{ car.cylinder_bore_mm }}</td>
+              </tr>
+              <tr>
+                <td>Cylinder layout: {{ car.cylinder_layout }}</td>
+              </tr>
+              <tr>
+                <td>Drive wheels: {{ car.drive_wheels }}</td>
+              </tr>
+              <tr>
+                <td>Engine hp: {{ car.engine_hp }}</td>
+              </tr>
+              <tr>
+                <td>Engine hp rpm: {{ car.engine_hp_rpm }}</td>
+              </tr>
+              <tr>
+                <td>engine type: {{ car.engine_type }}</td>
+              </tr>
+              <tr>
+                <td>Fuel grade: {{ car.fuel_grade }}</td>
+              </tr>
+              <tr>
+                <td>
+                  Fuel tank capacity: {{ car.fuel_tank_capacity_l }} liters
+                </td>
+              </tr>
+              <tr>
+                <td>Generation: {{ car.generation }}</td>
+              </tr>
+              <tr>
+                <td>Injection type: {{ car.injection_type }}</td>
+              </tr>
+              <tr>
+                <td>Boost type: {{ car.boost_type }}</td>
+              </tr>
+              <tr>
+                <td>Max speed (kmh): {{ car.max_speed_km_per_h }}</td>
+              </tr>
+              <tr>
+                <td>
+                  Max trunk capacity: {{ car.max_trunk_capacity_l }} liters
+                </td>
+              </tr>
+              <tr>
+                <td>Max torque: {{ car.maximum_torque_n_m }}</td>
+              </tr>
+              <tr>
+                <td>Number of cylinders: {{ car.number_of_cylinders }}</td>
+              </tr>
+              <tr>
+                <td>Number of gears: {{ car.number_of_gears }}</td>
+              </tr>
+              <tr>
+                <td>Transmission: {{ car.transmission }}</td>
+              </tr>
+              <tr>
+                <td>Number of seats: {{ car.number_of_seats }}</td>
+              </tr>
+              <tr>
+                <td>Range (km): {{ car.range_km }}</td>
+              </tr>
+              <tr>
+                <td>Series: {{ car.series }}</td>
+              </tr>
+              <tr>
+                <td>Stroke cycle (mm): {{ car.stroke_cycle_mm }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-<!-- ---------------------------- Raba e dit------------------------------------------------------------------>
+
+      <!-- ---------------------------- Raba e dit------------------------------------------------------------------>
       <div class="col-sm-5">
         <mat-form-field appearance="outline">
           <mat-label>Choose a make</mat-label>
-          <mat-select (selectionChange)="SelectMake1($event)" >
-            <mat-option *ngFor="let car of filtered" [value]="car" >{{car}}</mat-option>
+          <mat-select (selectionChange)="SelectMake1($event)">
+            <mat-option *ngFor="let car of filtered" [value]="car">{{
+              car
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
         <div ngbDropdown class="dropdown">
-        <mat-form-field appearance="outline">
-          <mat-label>Choose a model</mat-label>
-          <mat-select (selectionChange)="selectedCars($event)">
-            <mat-option *ngFor="let car of filterCarByModel1" [value]="car?.id_trim" >{{car.make}} {{car?.model}} {{car.year_to}}</mat-option>
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Choose a model</mat-label>
+            <mat-select (selectionChange)="selectedCars($event)">
+              <mat-option
+                *ngFor="let car of filterCarByModel1"
+                [value]="car?.id_trim"
+                >{{ car.make }} {{ car?.model }} {{ car.year_to }}
+                {{ car.engine_hp }}hp {{ car.engine_type }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
         </div>
 
+        <!-- -----------------------------Card e rabes dit ------------------------>
 
-      <!-- -----------------------------Card e rabes dit ------------------------>
-
-
-        <div class="selectedProducts" *ngIf="selectedCar2">
-          <mat-card *ngFor="let car of selectedCar2" class="mb-r" class="space">
-            <button class="removebutton" (click)="removeCar1(car, car)">
-              x
+        <table id="table2" class="table align-middle mb-0 bg-white">
+          <thead class="bg-light"></thead>
+          <tbody *ngFor="let car of selectedCar2">
+            <button
+              id="removebutton"
+              class="btn btn-danger"
+              (click)="removeCar1(car, car)"
+            >
+              remove
             </button>
-            <mat-card-title
-              ><br />
-              {{ car.make }}
-            </mat-card-title>
-
-            <p class="contentt">Model :{{ car.model }}</p>
-            <br />
-            <p class="contentt">Year: {{ car.year_to }}</p>
-          </mat-card>
-        </div>
+            <tr>
+              <th>{{ car.make }} {{ car.model }} {{ car.year_to }}</th>
+            </tr>
+            <tr>
+              <td>Make: {{ car.make }}</td>
+            </tr>
+            <tr>
+              <td>Model: {{ car.model }}</td>
+            </tr>
+            <tr>
+              <td>Capacity (cm3) {{ car.capacity_cm3 }}</td>
+            </tr>
+            <tr>
+              <td>Body type: {{ car.body_type }}</td>
+            </tr>
+            <tr>
+              <td>
+                Fuel Consumption City: {{ car.city_fuel_per_100km_l }} liters
+              </td>
+            </tr>
+            <tr>
+              <td>Curb weight (kg): {{ car.curb_weight_kg }}</td>
+            </tr>
+            <tr>
+              <td>Cylinder bore (mm) {{ car.cylinder_bore_mm }}</td>
+            </tr>
+            <tr>
+              <td>Cylinder layout: {{ car.cylinder_layout }}</td>
+            </tr>
+            <tr>
+              <td>Drive wheels: {{ car.drive_wheels }}</td>
+            </tr>
+            <tr>
+              <td>Engine hp: {{ car.engine_hp }}</td>
+            </tr>
+            <tr>
+              <td>Engine hp rpm: {{ car.engine_hp_rpm }}</td>
+            </tr>
+            <tr>
+              <td>Engine type: {{ car.engine_type }}</td>
+            </tr>
+            <tr>
+              <td>Fuel grade: {{ car.fuel_grade }}</td>
+            </tr>
+            <tr>
+              <td>Fuel tank capacity: {{ car.fuel_tank_capacity_l }} liters</td>
+            </tr>
+            <tr>
+              <td>Generation: {{ car.generation }}</td>
+            </tr>
+            <tr>
+              <td>Injection type: {{ car.injection_type }}</td>
+            </tr>
+            <tr>
+              <td>Boost type: {{ car.boost_type }}</td>
+            </tr>
+            <tr>
+              <td>Max speed (kmh): {{ car.max_speed_km_per_h }}</td>
+            </tr>
+            <tr>
+              <td>Max trunk capacity: {{ car.max_trunk_capacity_l }} liters</td>
+            </tr>
+            <tr>
+              <td>Max torque: {{ car.maximum_torque_n_m }}</td>
+            </tr>
+            <tr>
+              <td>Number of cylinders: {{ car.number_of_cylinders }}</td>
+            </tr>
+            <tr>
+              <td>Number of gears: {{ car.number_of_gears }}</td>
+            </tr>
+            <tr>
+              <td>Transmission: {{ car.transmission }}</td>
+            </tr>
+            <tr>
+              <td>Number of seats: {{ car.number_of_seats }}</td>
+            </tr>
+            <tr>
+              <td>Range (km): {{ car.range_km }}</td>
+            </tr>
+            <tr>
+              <td>Series: {{ car.series }}</td>
+            </tr>
+            <tr>
+              <td>Stroke cycle (mm): {{ car.stroke_cycle_mm }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 </div>
-<div class="nmidiss">
-  <button  id="compare" (click)="compare()"> Compare</button>
-
-</div>
-
