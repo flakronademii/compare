@@ -18,7 +18,7 @@ img{
 .navbar-brand{
   background-color: transparent;
   background-repeat: no-repeat;
-  border: 2px solid white;
+  border: 1px solid rgb(0, 0, 0);
   cursor: pointer;
   overflow: hidden;
   padding: 8px;
