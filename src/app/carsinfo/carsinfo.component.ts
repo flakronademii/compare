@@ -1,3 +1,4 @@
+
 import { CarsService } from './../services/cars.service';
 import { Component, OnInit } from '@angular/core';
 import { allCars } from '../services/allCars';
@@ -8,12 +9,14 @@ interface cars {
   viewValue: string;
 }
 @Component({
-  selector: 'app-cars',
-  templateUrl: './cars.component.html',
-  styleUrls: ['./cars.component.css'],
+  selector: 'app-carsinfo',
+  templateUrl: './carsinfo.component.html',
+  styleUrls: ['./carsinfo.component.css']
 })
-export class CarsComponent implements OnInit {
-  math = Math;
+export class CarsinfoComponent {
+
+
+
   selected: any = [];
   selected1: any = [];
   selectedCar1: any = [];
@@ -61,12 +64,6 @@ export class CarsComponent implements OnInit {
     this.carsService.fetchCars();
   }
   compare() {
-  //   if(this.selectedCar1.engine_hp > this.selectedCar2.engine_hp){
-  //     console.log(this.selectedCar1.model + "is more powerful")
-  //   }
-  //   else{
-  //     console.log(this.selectedCar2.model + "is more powerful")
-  //  }
     Swal.fire('Success', `Compared sucessfuly!`, 'success');
   }
   selectedCar(car: any) {
@@ -139,7 +136,6 @@ export class CarsComponent implements OnInit {
     this.filterCarByModel = this.allCars.filter((x) => x.make === e.value);
     this.filterCarByModel.forEach((car: any) => {
       this.allModels.push(car.model);
-
 
     });
     this.noDuplicatefilterCarByModel = new Set([...this.allModels]);

@@ -90,6 +90,7 @@ button
   top: 100%;
 }
 .fotoja {
+  margin-left:40px;
   width: 90%;
   height: 100%;
 }
@@ -128,4 +129,18 @@ table tbody {
   display: flex;
   position: relative;
   margin: 0 auto;
+}
+.compare{
+  margin: 0 auto;
+  display: flex;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 2px solid white;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 8px;
+  margin-top: 20px;
+  color: white;
+
+  outline: none;
 }

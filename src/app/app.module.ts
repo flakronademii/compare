@@ -22,8 +22,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { TheftcarComponent } from './theftcar/theftcar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { CarsinfoComponent } from './carsinfo/carsinfo.component';
 @NgModule({
-  declarations: [AppComponent, CarsComponent, SearchPipe, LoaderComponent, HeaderComponent, TheftcarComponent ],
+  declarations: [AppComponent, CarsComponent, SearchPipe, LoaderComponent, HeaderComponent, TheftcarComponent ,CarsinfoComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -41,7 +42,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
   ],
   providers: [
-  
+
   ],
   bootstrap: [AppComponent],
 })
