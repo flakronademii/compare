@@ -131,6 +131,12 @@ table tbody {
   margin: 0 auto;
 }
 .compare{
+  margin-top: 50px;
+  padding: 10px;
+
+
+}
+.compare1{
   margin: 0 auto;
   display: flex;
   background-color: transparent;
@@ -140,7 +146,8 @@ table tbody {
   cursor: pointer;
   overflow: hidden;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   color: white;
 
   outline: none;
