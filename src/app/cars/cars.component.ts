@@ -136,6 +136,9 @@ export class CarsComponent implements OnInit {
   noDuplicatefilterCarByModel1:any;
   filterCarByModel: any;
   SelectMake(e: any) {
+    if(e){
+      this.allModels = []
+    }
     this.filterCarByModel = this.allCars.filter((x) => x.make === e.value);
     this.filterCarByModel.forEach((car: any) => {
       this.allModels.push(car.model);
@@ -149,6 +152,9 @@ export class CarsComponent implements OnInit {
 
   filterCarByModel1: any;
   SelectMake1(e: any) {
+    if(e){
+      this.allModels1 = []
+    }
     this.filterCarByModel1 = this.allCars.filter((x) => x.make === e.value);
     this.filterCarByModel1.forEach((car: any) => {
       this.allModels1.push(car.model);
