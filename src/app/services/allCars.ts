@@ -23,6 +23,7 @@ export interface allCars {
   injection_type: string;
   cylinder_layout: string;
   number_of_cylinders: string;
+  full_weight_kg: string;
   engine_type: string;
   valves_per_cylinder: string;
   cylinder_bore_mm: string;
@@ -38,6 +39,11 @@ export interface allCars {
   acceleration_0_100_km: string;
   max_speed_km_per_h: string;
   front_brakes: string;
-  fuel_grade: string;
   front_suspension: string;
+  back_suspension: string;
+  fuel_grade: string;
+  city_fuel_per_100km_l: string;
+  highway_fuel_per_100km_l: string;
+  number_of_doors: string;
+  emission_standards: string;
 }

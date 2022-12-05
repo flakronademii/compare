@@ -10,7 +10,7 @@ interface cars {
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
-  styleUrls: ['./cars.component.css']
+  styleUrls: ['./cars.component.css'],
 })
 export class CarsComponent implements OnInit {
   math = Math;
@@ -28,7 +28,7 @@ export class CarsComponent implements OnInit {
   models: any = [];
   filteredModels: any = [];
   filterCarByCarModel: any;
-  filterCarByCarModel1:any;
+  filterCarByCarModel1: any;
   tempFiltered: any = [];
 
   constructor(private carsService: CarsService, private http: HttpClient) {}
@@ -45,7 +45,6 @@ export class CarsComponent implements OnInit {
         this.makes.push(make.make);
       });
       this.filtered = new Set([...this.makes]);
-
     });
 
     this.carsService.getAllCars().subscribe((x) => {
@@ -61,16 +60,15 @@ export class CarsComponent implements OnInit {
     this.carsService.fetchCars();
   }
   compare() {
-  //   if(this.selectedCar1.engine_hp > this.selectedCar2.engine_hp){
-  //     console.log(this.selectedCar1.model + "is more powerful")
-  //   }
-  //   else{
-  //     console.log(this.selectedCar2.model + "is more powerful")
-  //  }
+    //   if(this.selectedCar1.engine_hp > this.selectedCar2.engine_hp){
+    //     console.log(this.selectedCar1.model + "is more powerful")
+    //   }
+    //   else{
+    //     console.log(this.selectedCar2.model + "is more powerful")
+    //  }
     Swal.fire('Success', `Compared sucessfuly!`, 'success');
   }
   selectedCar(car: any) {
-
     const selectedProduct = this.allCars.find(
       (cars) => cars.id_trim === car.value
     );
@@ -99,10 +97,8 @@ export class CarsComponent implements OnInit {
         'warning'
       );
     }
-
   }
   selectedCars(car: any) {
-
     const selectedProduct = this.allCars.find(
       (cars) => cars.id_trim === car.value
     );
@@ -127,35 +123,41 @@ export class CarsComponent implements OnInit {
         'warning'
       );
     }
-
   }
 
   allModels: any = [];
   allModels1: any = [];
   noDuplicatefilterCarByModel: any;
-  noDuplicatefilterCarByModel1:any;
+  noDuplicatefilterCarByModel1: any;
   filterCarByModel: any;
   SelectMake(e: any) {
+    if (e) {
+      this.allModels = [];
+    }
+
     this.filterCarByModel = this.allCars.filter((x) => x.make === e.value);
     this.filterCarByModel.forEach((car: any) => {
       this.allModels.push(car.model);
-
-
     });
+
+    console.log({ e });
     this.noDuplicatefilterCarByModel = new Set([...this.allModels]);
 
-
+    console.log(this.allModels);
   }
 
   filterCarByModel1: any;
   SelectMake1(e: any) {
+    if (e) {
+      this.allModels1 = [];
+    }
+
     this.filterCarByModel1 = this.allCars.filter((x) => x.make === e.value);
     this.filterCarByModel1.forEach((car: any) => {
       this.allModels1.push(car.model);
-
     });
     this.noDuplicatefilterCarByModel1 = new Set([...this.allModels1]);
- }
+  }
 
   SelectModel(e: any) {
     this.filterCarByCarModel = this.allCars.filter((x) => x.model === e.value);
@@ -174,5 +176,9 @@ export class CarsComponent implements OnInit {
     this.selectedCar2 = this.selectedCar2.filter(
       (item: allCars) => item.id_trim !== car2.id_trim
     );
+  }
+
+  deleteCar(id: any) {
+    this.carsService.deleteCar(id);
   }
 }

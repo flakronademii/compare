@@ -5,9 +5,10 @@ import { CarsinfoComponent } from './carsinfo/carsinfo.component';
 import { TheftcarComponent } from './theftcar/theftcar.component';
 
 const routes: Routes = [
-  {path:'', component:CarsinfoComponent},
-  {path: 'compare' , component:CarsComponent},
-  {path:'theftcar', component:TheftcarComponent}
+  { path: '', component: CarsinfoComponent },
+  { path: 'compare', component: CarsComponent },
+  { path: 'theftcar', component: TheftcarComponent },
+  { path: 'car/:id', component: TheftcarComponent },
 ];
 
 @NgModule({

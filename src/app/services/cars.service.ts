@@ -30,6 +30,10 @@ export class CarsService {
     });
   }
 
+  deleteCar(id: any) {
+    return this.http.post<any>(`${this.LOCALHOST_URL}/`, id);
+  }
+
   getAPI() {
     return this.http
       .get<any>('https://car-data.p.rapidapi.com/cars/types')
@@ -38,6 +42,5 @@ export class CarsService {
       });
   }
 
-  disappearCars() {
-  }
+  disappearCars() {}
 }
