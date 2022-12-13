@@ -1,6 +1,7 @@
-<div class="Markat" >
-  <button *ngFor="let car of filtered" (click)="SelectMake($event)">
-    {{car}}
+<div class="Markat">
+  <button *ngFor="let car of filtered" (click)="getSelectedCarByModel(car)">
+    <a [routerLink]="['/car/' + car]">
+      {{ car }}
+    </a>
   </button>
-
 </div>

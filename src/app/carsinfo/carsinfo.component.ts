@@ -1,4 +1,3 @@
-
 import { CarsService } from './../services/cars.service';
 import { Component, OnInit } from '@angular/core';
 import { allCars } from '../services/allCars';
@@ -11,12 +10,9 @@ interface cars {
 @Component({
   selector: 'app-carsinfo',
   templateUrl: './carsinfo.component.html',
-  styleUrls: ['./carsinfo.component.css']
+  styleUrls: ['./carsinfo.component.css'],
 })
 export class CarsinfoComponent {
-
-
-
   selected: any = [];
   selected1: any = [];
   selectedCar1: any = [];
@@ -31,7 +27,7 @@ export class CarsinfoComponent {
   models: any = [];
   filteredModels: any = [];
   filterCarByCarModel: any;
-  filterCarByCarModel1:any;
+  filterCarByCarModel1: any;
   tempFiltered: any = [];
 
   constructor(private carsService: CarsService, private http: HttpClient) {}
@@ -48,7 +44,7 @@ export class CarsinfoComponent {
         this.makes.push(make.make);
       });
       this.filtered = new Set([...this.makes]);
-
+      console.log({ filtered: this.filtered });
     });
 
     this.carsService.getAllCars().subscribe((x) => {
@@ -63,11 +59,11 @@ export class CarsinfoComponent {
   fetchCars() {
     this.carsService.fetchCars();
   }
+
   compare() {
     Swal.fire('Success', `Compared sucessfuly!`, 'success');
   }
   selectedCar(car: any) {
-
     const selectedProduct = this.allCars.find(
       (cars) => cars.id_trim === car.value
     );
@@ -96,10 +92,8 @@ export class CarsinfoComponent {
         'warning'
       );
     }
-
   }
   selectedCars(car: any) {
-
     const selectedProduct = this.allCars.find(
       (cars) => cars.id_trim === car.value
     );
@@ -124,23 +118,19 @@ export class CarsinfoComponent {
         'warning'
       );
     }
-
   }
 
   allModels: any = [];
   allModels1: any = [];
   noDuplicatefilterCarByModel: any;
-  noDuplicatefilterCarByModel1:any;
+  noDuplicatefilterCarByModel1: any;
   filterCarByModel: any;
   SelectMake(e: any) {
     this.filterCarByModel = this.allCars.filter((x) => x.make === e.value);
     this.filterCarByModel.forEach((car: any) => {
       this.allModels.push(car.model);
-
     });
     this.noDuplicatefilterCarByModel = new Set([...this.allModels]);
-
-
   }
 
   filterCarByModel1: any;
@@ -148,10 +138,9 @@ export class CarsinfoComponent {
     this.filterCarByModel1 = this.allCars.filter((x) => x.make === e.value);
     this.filterCarByModel1.forEach((car: any) => {
       this.allModels1.push(car.model);
-
     });
     this.noDuplicatefilterCarByModel1 = new Set([...this.allModels1]);
- }
+  }
 
   SelectModel(e: any) {
     this.filterCarByCarModel = this.allCars.filter((x) => x.model === e.value);
@@ -170,5 +159,25 @@ export class CarsinfoComponent {
     this.selectedCar2 = this.selectedCar2.filter(
       (item: allCars) => item.id_trim !== car2.id_trim
     );
+  }
+
+  selectedMake: any = [];
+  getCarById(id: any) {
+    console.log(id);
+    this.selectedMake.push(id);
+    console.log({ selectedMake: this.selectedMake });
+  }
+
+  filteredCarByModel: any = [];
+  selectedCarByModel: any = [];
+  getSelectedCarByModel(id: any) {
+    this.carsService.fetchCars().subscribe((car) => {
+      this.selectedCarByModel.push(car);
+      this.filteredCarByModel = this.selectedCarByModel.find(
+        (item: allCars) => item.make === id
+      );
+      console.log({ car: this.selectedCarByModel });
+    });
+    return this.selectedCarByModel;
   }
 }

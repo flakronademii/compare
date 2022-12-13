@@ -1,8 +1,9 @@
+import { SingleCarComponent } from './cars/single-car/single-car.component';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,14 +18,23 @@ import { LoaderComponent } from './loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 import { TheftcarComponent } from './theftcar/theftcar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CarsinfoComponent } from './carsinfo/carsinfo.component';
 @NgModule({
-  declarations: [AppComponent, CarsComponent, SearchPipe, LoaderComponent, HeaderComponent, TheftcarComponent ,CarsinfoComponent],
+  declarations: [
+    AppComponent,
+    CarsComponent,
+    SearchPipe,
+    LoaderComponent,
+    HeaderComponent,
+    TheftcarComponent,
+    CarsinfoComponent,
+    SingleCarComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -37,13 +47,10 @@ import { CarsinfoComponent } from './carsinfo/carsinfo.component';
     MatSelectModule,
     MatFormFieldModule,
     NgbModule,
-    MatToolbarModule,MatIconModule,
-
-
+    MatToolbarModule,
+    MatIconModule,
   ],
-  providers: [
-
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -30,8 +30,12 @@ export class CarsService {
     });
   }
 
+  getSingleCar(car: any) {
+    return this.http.get<any>(`${this.LOCALHOST_URL}/car/`, car.make);
+  }
+
   deleteCar(id: any) {
-    return this.http.post<any>(`${this.LOCALHOST_URL}/`, id);
+    return this.http.get<any>(`${this.LOCALHOST_URL}/`, id);
   }
 
   getAPI() {
@@ -41,6 +45,4 @@ export class CarsService {
         console.log({ x });
       });
   }
-
-  disappearCars() {}
 }

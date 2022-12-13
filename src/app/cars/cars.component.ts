@@ -181,4 +181,8 @@ export class CarsComponent implements OnInit {
   deleteCar(id: any) {
     this.carsService.deleteCar(id);
   }
+
+  getCarById(id: any) {
+    console.log(id);
+  }
 }
