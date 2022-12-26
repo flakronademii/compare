@@ -1,5 +1,7 @@
 <div class="Markat">
-  <button *ngFor="let car of selectedMark">
-    {{ car.make }} {{ car.model }} {{ car.year_from }} {{ car.trim }}
+  <button *ngFor="let car of noDuplicateSelectedMark">
+    <a [routerLink]="['/' + car]">
+      {{ car }}
+    </a>
   </button>
 </div>

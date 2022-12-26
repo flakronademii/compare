@@ -45,4 +45,8 @@ export class CarsService {
         console.log({ x });
       });
   }
+
+  getCarMySelectedModel(car: any) {
+    return this.http.get(`${this.LOCALHOST_URL}/car/`, car.model);
+  }
 }

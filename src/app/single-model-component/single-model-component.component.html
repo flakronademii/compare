@@ -1,0 +1,8 @@
+<div class="Markat">
+  <button *ngFor="let car of SelectedModel">
+    <a [routerLink]="['/table/' + car.id_trim]">
+      {{ car.make }} {{ car.model }} {{ car.year_from }}-{{ car.year_to }}
+      {{ car.engine_type }} {{ car.trim }} {{ car.engine_hp }} hp
+    </a>
+  </button>
+</div>

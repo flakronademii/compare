@@ -19,6 +19,8 @@ button {
 
   outline: none;
 }
+
 a {
   color: white;
+  list-style-type: none;
 }

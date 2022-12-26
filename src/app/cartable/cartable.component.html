@@ -1,0 +1,189 @@
+<div>
+  <table id="table1" class="table align-middle mb-0 bg-white">
+    <thead class="bg-light"></thead>
+    <tbody *ngFor="let car of SelectedModel">
+      <tr>
+        <th class="spec">{{ car.make }} {{ car.model }} {{ car.year_to }}</th>
+      </tr>
+      <tr>
+        <td>Make: {{ car.make }}</td>
+      </tr>
+      <tr>
+        <td>Model: {{ car.model }}</td>
+      </tr>
+      <tr>
+        <td>Series: {{ car.series }}</td>
+      </tr>
+      <tr>
+        <th class="spec">Engine Specs</th>
+      </tr>
+      <tr>
+        <td>Trim: {{ car.trim }}</td>
+      </tr>
+      <tr>
+        <td>Generation: {{ car.generation }}</td>
+      </tr>
+
+      <tr>
+        <td>Capacity (cm3): {{ car.capacity_cm3 }}</td>
+      </tr>
+      <tr>
+        <td>Engine hp: {{ car.engine_hp }}</td>
+      </tr>
+      <tr>
+        <td>Engine hp rpm: {{ car.engine_hp_rpm }}</td>
+      </tr>
+      <tr>
+        <td>Number of cylinders: {{ car.number_of_cylinders }}</td>
+      </tr>
+      <tr>
+        <td>Cylinder layout: {{ car.cylinder_layout }}</td>
+      </tr>
+      <tr>
+        <td>Cylinder bore (mm): {{ car.cylinder_bore_mm }}</td>
+      </tr>
+      <tr>
+        <td>Valves per cylinder: {{ car.valves_per_cylinder }}</td>
+      </tr>
+      <tr>
+        <td>Engine type: {{ car.engine_type }}</td>
+      </tr>
+      <tr>
+        <td>Injection type: {{ car.injection_type }}</td>
+      </tr>
+      <tr>
+        <td>Capacity (cm3) {{ car.capacity_cm3 }}</td>
+      </tr>
+      <tr>
+        <td>Max torque: {{ car.maximum_torque_n_m }}</td>
+      </tr>
+      <tr>
+        <td>Maximum Torque rpm: {{ car.turnover_of_maximum_torque_rpm }}</td>
+      </tr>
+      <tr>
+        <td>Stroke cycle mm: {{ car.stroke_cycle_mm }}</td>
+      </tr>
+      <tr>
+        <td>Boost type: {{ car.boost_type }}</td>
+      </tr>
+      <tr>
+        <td>Emission Standards: {{ car.emission_standards }}</td>
+      </tr>
+
+      <tr>
+        <th class="spec">Transmission and drivetrain</th>
+      </tr>
+      <tr>
+        <td>Transmission: {{ car.transmission }}</td>
+      </tr>
+      <tr>
+        <td>Number of gears: {{ car.number_of_gears }}</td>
+      </tr>
+      <tr>
+        <td>Drive wheels: {{ car.drive_wheels }}</td>
+      </tr>
+      <tr>
+        <td>Wheelbase: {{ car.wheelbase_mm }}</td>
+      </tr>
+      <tr>
+        <td>Front Track: {{ car.front_track_mm }}</td>
+      </tr>
+      <tr>
+        <td>Rear Track : {{ car.rear_track_mm }}</td>
+      </tr>
+      <tr>
+        <th class="spec">Exterior</th>
+      </tr>
+      <tr>
+        <td>Body type: {{ car.body_type }}</td>
+      </tr>
+      <tr>
+        <td>Length : {{ car.length_mm }}mm</td>
+      </tr>
+      <tr>
+        <td>Width : {{ car.width_mm }}mm</td>
+      </tr>
+      <tr>
+        <td>Height {{ car.height_mmstring }}mm</td>
+      </tr>
+      <tr>
+        <td>Ground Clearance {{ car.ground_clearance_mm }}mm</td>
+      </tr>
+      <tr>
+        <td>Turning Circle: {{ car.turning_circle_m }}</td>
+      </tr>
+      <tr>
+        <th class="spec">Acceleration</th>
+      </tr>
+      <tr>
+        <td>Max Speed: {{ car.max_speed_km_per_h }}</td>
+      </tr>
+      <tr>
+        <td>0-100kmh: {{ car.acceleration_0_100_km }}</td>
+      </tr>
+      <tr>
+        <th class="spec">Suspension</th>
+      </tr>
+      <tr>
+        <td>Front Suspension: {{ car.front_suspension }}</td>
+      </tr>
+      <tr>
+        <td>Back Suspension: {{ car.back_suspension }}</td>
+      </tr>
+      <tr>
+        <th class="spec">Weight</th>
+      </tr>
+      <tr>
+        <td>Full Weight (kg): {{ car.full_weight_kg }}</td>
+      </tr>
+      <tr>
+        <td>Curb weight (kg): {{ car.curb_weight_kg }}</td>
+      </tr>
+      <tr>
+        <th class="spec">Fuel</th>
+      </tr>
+      <tr>
+        <td>Fuel Consumption City: {{ car.city_fuel_per_100km_l }} liters</td>
+      </tr>
+      <tr>
+        <td>Fuel grade: {{ car.fuel_grade }}</td>
+      </tr>
+      <tr>
+        <td>Fuel tank capacity: {{ car.fuel_tank_capacity_l }} liters</td>
+      </tr>
+      <tr>
+        <td>Highway Fuel: {{ car.highway_fuel_per_100km_l }} liters</td>
+      </tr>
+      <tr>
+        <td>City Fuel :{{ car.city_fuel_per_100km_l }} liters</td>
+      </tr>
+      <tr>
+        <td>Range (km): {{ car.range_km }}km</td>
+      </tr>
+      <tr>
+        <th class="spec">Chassis</th>
+      </tr>
+      <tr>
+        <td>Number of doors: {{ car.number_of_doors }}</td>
+      </tr>
+      <tr>
+        <th class="spec">Interier</th>
+      </tr>
+      <tr>
+        <td>Number of seats: {{ car.number_of_seats }}</td>
+      </tr>
+      <tr>
+        <td>Max trunk capacity: {{ car.max_trunk_capacity_l }} liters</td>
+      </tr>
+      <tr>
+        <th class="spec">Brakes</th>
+      </tr>
+      <tr>
+        <td>Front Brakes: {{ car.front_brakes }}</td>
+      </tr>
+      <tr>
+        <td>Rear Brakes: {{ car.rear_brakes }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -24,6 +24,8 @@ import { TheftcarComponent } from './theftcar/theftcar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CarsinfoComponent } from './carsinfo/carsinfo.component';
+import { SingleModelComponentComponent } from './single-model-component/single-model-component.component';
+import { CartableComponent } from './cartable/cartable.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,8 @@ import { CarsinfoComponent } from './carsinfo/carsinfo.component';
     TheftcarComponent,
     CarsinfoComponent,
     SingleCarComponent,
+    SingleModelComponentComponent,
+    CartableComponent,
   ],
   imports: [
     BrowserModule,
