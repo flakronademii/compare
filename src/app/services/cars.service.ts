@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
-import { allCars } from '../services/allCars';
+import { allCars } from './allCars';
 import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
@@ -42,7 +42,6 @@ export class CarsService {
     return this.http
       .get<any>('https://car-data.p.rapidapi.com/cars/types')
       .subscribe((x) => {
-        console.log({ x });
       });
   }
 

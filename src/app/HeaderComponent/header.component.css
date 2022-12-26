@@ -15,6 +15,10 @@ img{
   width: auto;
   height: 50px;
 }
+input{
+  width: auto;
+  height:50px;
+}
 .navbar-brand{
   background-color: transparent;
   background-repeat: no-repeat;

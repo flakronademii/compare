@@ -1,9 +1,12 @@
 <mat-toolbar>
- <img src="../../assets/cccarcompare-01.png" alt="">
+ <img  alt="">
+ <input type="image" id="image" alt="logo"
+ src="../../assets/cccarcompare-01.png" [routerLink]="['/']">
+
   <span class="example-spacer"></span>
   <nav class="navbar navbar-light bg-faded">
 
-    <a class="navbar-brand" href="/">Car Info</a>
+    <a class="navbar-brand" href="/cars">Car Info</a>
     <a class="navbar-brand" href="/compare">Car Compare</a>
       <a class="navbar-brand" href="/theftcar">Check Theft</a>
 

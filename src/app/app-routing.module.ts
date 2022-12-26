@@ -1,14 +1,16 @@
-import { CartableComponent } from './cartable/cartable.component';
-import { NgModule } from '@angular/core';
+import { CartableComponent } from './carsinfo/SingleCarInfoTableComponent/cartable.component';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CarsComponent } from './cars/cars.component';
-import { SingleCarComponent } from './cars/single-car/single-car.component';
+import { CarsComponent } from './CarCompareComponent/cars.component';
+import { SingleCarComponent } from './carsinfo/SingleMakeComponent/single-car.component';
 import { CarsinfoComponent } from './carsinfo/carsinfo.component';
-import { TheftcarComponent } from './theftcar/theftcar.component';
-import { SingleModelComponentComponent } from './single-model-component/single-model-component.component';
+import { TheftcarComponent } from './TheftCarComponent/theftcar.component';
+import { SingleModelComponentComponent } from './carsinfo/SingleModelComponent/single-model-component.component';
+import { WelcomeComponent } from './WelcomeComponent/welcome.component';
 
 const routes: Routes = [
-  { path: '', component: CarsinfoComponent },
+  { path: '' ,component:WelcomeComponent },
+  { path: 'cars', component: CarsinfoComponent },
   { path: 'compare', component: CarsComponent },
   { path: 'theftcar', component: TheftcarComponent },
   { path: 'car/:name', component: SingleCarComponent },

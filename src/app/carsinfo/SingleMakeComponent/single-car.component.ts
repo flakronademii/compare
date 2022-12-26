@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, getNgModuleById } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { allCars } from 'src/app/services/allCars';
-import { CarsService } from './../../services/cars.service';
-import { CarsinfoComponent } from '../../carsinfo/carsinfo.component';
+import { CarsService } from '../../services/cars.service';
+import { CarsinfoComponent } from '../carsinfo.component';
+
 import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 
 @Component({
@@ -33,7 +34,6 @@ export class SingleCarComponent {
       this.marka = data.params.name;
       this.carsService.fetchCars().subscribe((cars: any) => {
         this.allCars = cars.car_db_metric;
-        console.log({ cars: this.allCars });
         this.selectedMark = this.allCars.filter(
           (car) => car.make === this.marka
         );
@@ -43,7 +43,6 @@ export class SingleCarComponent {
         });
 
         this.noDuplicateSelectedMark = new Set([...this.allModels]);
-        console.log(this.noDuplicateSelectedMark);
       });
     });
   }

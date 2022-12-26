@@ -1,4 +1,4 @@
-import { CarsService } from './../services/cars.service';
+import { CarsService } from '../services/cars.service';
 import { Component, OnInit } from '@angular/core';
 import { allCars } from '../services/allCars';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -60,12 +60,7 @@ export class CarsComponent implements OnInit {
     this.carsService.fetchCars();
   }
   compare() {
-    //   if(this.selectedCar1.engine_hp > this.selectedCar2.engine_hp){
-    //     console.log(this.selectedCar1.model + "is more powerful")
-    //   }
-    //   else{
-    //     console.log(this.selectedCar2.model + "is more powerful")
-    //  }
+
     Swal.fire('Success', `Compared sucessfuly!`, 'success');
   }
   selectedCar(car: any) {
@@ -140,10 +135,8 @@ export class CarsComponent implements OnInit {
       this.allModels.push(car.model);
     });
 
-    console.log({ e });
     this.noDuplicatefilterCarByModel = new Set([...this.allModels]);
 
-    console.log(this.allModels);
   }
 
   filterCarByModel1: any;
@@ -182,7 +175,4 @@ export class CarsComponent implements OnInit {
     this.carsService.deleteCar(id);
   }
 
-  getCarById(id: any) {
-    console.log(id);
-  }
 }

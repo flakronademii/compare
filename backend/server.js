@@ -21,13 +21,11 @@ app.use(bodyParser.json());
 
 app.get("/get-cars", async (req, res) => {
   const file = require("./cars.json");
-  console.log(file);
   res.send(file);
 });
 
 app.get("/all", async (req, res, next) => {
   const file = require("./cars.json");
-  console.log(file);
   res.send(file);
 });
 

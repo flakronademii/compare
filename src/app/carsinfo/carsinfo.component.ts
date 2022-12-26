@@ -1,4 +1,4 @@
-import { CarsService } from './../services/cars.service';
+import { CarsService } from '../services/cars.service';
 import { Component, OnInit } from '@angular/core';
 import { allCars } from '../services/allCars';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -44,7 +44,6 @@ export class CarsinfoComponent {
         this.makes.push(make.make);
       });
       this.filtered = new Set([...this.makes]);
-      console.log({ filtered: this.filtered });
     });
 
     this.carsService.getAllCars().subscribe((x) => {
@@ -163,9 +162,7 @@ export class CarsinfoComponent {
 
   selectedMake: any = [];
   getCarById(id: any) {
-    console.log(id);
     this.selectedMake.push(id);
-    console.log({ selectedMake: this.selectedMake });
   }
 
   filteredCarByModel: any = [];
@@ -176,7 +173,6 @@ export class CarsinfoComponent {
       this.filteredCarByModel = this.selectedCarByModel.find(
         (item: allCars) => item.make === id
       );
-      console.log({ car: this.selectedCarByModel });
     });
     return this.selectedCarByModel;
   }
